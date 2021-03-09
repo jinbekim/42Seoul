@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 16:39:57 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/07 20:01:24 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/09 17:19:45 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ double dirX = -1, dirY = 0; //initial direction vector
 double planeX = 0, planeY = 0.66; //the 2d raycaster version of camera plane
 double moveSpeed = 0.3;
 double rotSpeed = 0.08;
+
 
 double	ft_abs(double x)
 {
@@ -29,6 +30,7 @@ void	draw_ver_line(int x, int drawStart, int drawEnd, int color, int **data)
 {
 	int i = 0;
 	while (i < 480){
+		// in order, wall, ceil, floor
 		if (i >= drawStart && i <=drawEnd){
 			(*data)[i * 640 + x] = color;
 		}
@@ -45,6 +47,9 @@ void	draw_ver_line(int x, int drawStart, int drawEnd, int color, int **data)
 int	key_code(int key, void *param){
 	if (key == 53)
 		exit(0);
+	double sdirX, sdirY;
+	sdirX = dirX * cos(1.571) - dirY * sin(1.571);
+    sdirY = dirX * sin(1.571) + dirY * cos(1.571);
 
 	if (key == key_w || key == arr_up)
 	{
@@ -60,7 +65,21 @@ int	key_code(int key, void *param){
       if(g_worldMap[(int)posX][(int)(posY - dirY * moveSpeed)] == 0)
 	  	posY -= dirY * moveSpeed;
     }
-	if (key == key_a || key == arr_left)
+	if (key == key_a)
+	{
+		if(g_worldMap[(int)(posX + sdirX * moveSpeed)][(int)posY] == 0)
+	  		posX += sdirX * moveSpeed;
+      	if(g_worldMap[(int)posX][(int)(posY + sdirY * moveSpeed)] == 0)
+	  		posY += sdirY * moveSpeed;
+	}
+	if (key == key_d)
+	{
+		if(g_worldMap[(int)(posX - sdirX * moveSpeed)][(int)posY] == 0)
+	  		posX -= sdirX * moveSpeed;
+      	if(g_worldMap[(int)posX][(int)(posY - sdirY * moveSpeed)] == 0)
+	  		posY -= sdirY * moveSpeed;
+	}
+	if (key == arr_left)
 	{
       //both camera direction and camera plane must be rotated
       double oldDirX = dirX;
@@ -70,7 +89,7 @@ int	key_code(int key, void *param){
       planeX = planeX * cos(rotSpeed) - planeY * sin(rotSpeed);
       planeY = oldPlaneX * sin(rotSpeed) + planeY * cos(rotSpeed);
     }
-	if (key == key_d || key == arr_right)
+	if (key == arr_right)
 	{
       //both camera direction and camera plane must be rotated
       double oldDirX = dirX;
@@ -139,19 +158,25 @@ int main_loop(t_data *data)
         	{
         		sideDistX += deltaDistX;
         		mapX += stepX;
-        		side = 0;
+				if (rayDirX > 0)
+        			side = 0; // east texture
+				else
+					side = 1;  //west
        		}
         	else
         	{
         		sideDistY += deltaDistY;
         		mapY += stepY;
-        		side = 1;
+				if (rayDirY > 0)
+					side = 2; // north
+				else
+					side = 3;  // south
         	}
         	//Check if ray has hit a wall
         	if (g_worldMap[mapX][mapY] > 0) hit = 1;
 		}
 
-		if (side == 0)
+		if (side == 0 || side == 1)
 			perpWallDist = (mapX - posX + (1 - stepX) / 2) / rayDirX;
     	else
 			perpWallDist = (mapY - posY + (1 - stepY) / 2) / rayDirY;
@@ -167,17 +192,10 @@ int main_loop(t_data *data)
 
 	//choose wall color
       int color;
-      switch(g_worldMap[mapX][mapY])
-      {
-        case 1:  color = 0xff0000;  break; //red
-        case 2:  color = 0x00ff00;  break; //green
-        case 3:  color = 0x0000ff;  break; //blue
-        case 4:  color = 0xffffff;  break; //white
-        default: color = 0xffff00;  break; //yellow
-      }
-
-      //give x and y sides different brightness
-      if (side == 1) {color = color / 2;}
+      if (side == 0) {color = 0xffffff;}
+      if (side == 1) {color = 0xff0000;}
+      if (side == 2) {color = 0x00ff00;}
+      if (side == 3) {color = 0x0000ff;}
 
       //draw the pixels of the stripe as a vertical line
       draw_ver_line(x, drawStart, drawEnd, color, (int **)&data->data);
