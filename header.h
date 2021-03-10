@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:56:52 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/09 14:55:47 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/10 13:51:56 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@
 # define mapHeight 24
 # define screenWidth 640
 # define screenHeight 480
-
-# define texWidth 30
-# define texHeight 30
-
 
 # define key_w 13
 # define key_s 1
@@ -71,6 +67,26 @@ typedef struct	s_data{
 	void	*win;
 	void	*img;
 	void	*data;
-}				t_data;
+
+  int bpp;
+  int ls;
+  int en;
+  t_tex nr;
+  t_tex st;
+  t_tex ea;
+  t_tex we;
+}			t_data;
+
+typedef struct s_tex
+{
+  void *ptr;
+  void *data;
+  int  t_width;
+  int  t_height;
+  int  bpp;
+  int  ls;
+  int  en;
+}              t_tex;
+
 
 #endif
