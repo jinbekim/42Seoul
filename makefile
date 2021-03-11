@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/27 02:51:58 by jinbekim          #+#    #+#              #
-#    Updated: 2021/03/06 15:09:25 by jinbekim         ###   ########.fr        #
+#    Updated: 2021/03/11 16:09:43 by jinbekim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJ = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) -g3 -fsanitize=address -framework AppKit -framework OpenGL -lz -L. -lmlx -Iget_next_line $^ -o $(NAME)
+	$(CC) -g3 -fsanitize=address -framework AppKit -framework OpenGL -lz -L. -lmlx $^ -o $(NAME)
 
 clean :
 	rm -rf $(OBJ)

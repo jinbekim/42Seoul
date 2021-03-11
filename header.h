@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:56:52 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/10 13:51:56 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/11 17:07:55 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@
 # define arr_up 126
 # define arr_down 125
 
+# define moveSpeed 0.2
+# define rotSpeed 0.08
 
 int g_worldMap[mapWidth][mapHeight]=
 {
@@ -62,25 +64,10 @@ int g_worldMap[mapWidth][mapHeight]=
   {4,4,4,4,4,4,4,4,4,4,1,1,1,2,2,2,2,2,2,3,3,3,3,3}
 };
 
-typedef struct	s_data{
-	void	*mlx;
-	void	*win;
-	void	*img;
-	void	*data;
-
-  int bpp;
-  int ls;
-  int en;
-  t_tex nr;
-  t_tex st;
-  t_tex ea;
-  t_tex we;
-}			t_data;
-
 typedef struct s_tex
 {
   void *ptr;
-  void *data;
+  int *data;
   int  t_width;
   int  t_height;
   int  bpp;
@@ -88,5 +75,54 @@ typedef struct s_tex
   int  en;
 }              t_tex;
 
+typedef struct	s_data{
+	void          *mlx;
+	void        	*win;
+	void	        *img;
+	int	          *data;
+
+  int           bpp;
+  int           ls;
+  int           en;
+
+  double        x_pos;
+  double        y_pos;
+  double        x_dir;
+  double        y_dir;
+  double        x_plane;
+  double        y_plane;
+
+
+  t_tex nr;
+  t_tex st;
+  t_tex ea;
+  t_tex we;
+}			            t_data;
+
+typedef struct  s_ray{
+    double      camera_x;
+    double      dir_x;
+		double      dir_y;
+
+		int         map_x;
+		int         map_y;
+
+		double      side_dist_x;
+		double      side_dist_y;
+
+		double      delta_dist_x;
+		double      delta_dist_y;
+		double      perp_wall_dist;
+
+		int         step_x;
+		int         step_y;
+
+		int         hit;
+		int         side;
+}               t_ray;
+
+int		key_control(int key, t_data *param);
+int		mouse_move(int x, int y, t_data *param);
+int   close(void *param);
 
 #endif
