@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:56:52 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/11 17:07:55 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/12 17:40:35 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,7 @@ typedef struct  s_ray{
 int		key_control(int key, t_data *param);
 int		mouse_move(int x, int y, t_data *param);
 int   close(void *param);
+
+void		ray_casting(t_data *param);
 
 #endif
