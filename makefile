@@ -6,13 +6,13 @@
 #    By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/27 02:51:58 by jinbekim          #+#    #+#              #
-#    Updated: 2021/03/11 16:09:43 by jinbekim         ###   ########.fr        #
+#    Updated: 2021/03/17 16:15:51 by jinbekim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 NAME = cub3d.out
-SRC = main.c
+SRC = main.c key_control.c close.c mouse_move.c ray_casting.c texture.c
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)

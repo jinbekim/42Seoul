@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:52:03 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/14 05:13:09 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/17 16:43:22 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ static void	set_step_and_sd(t_ray *ray, t_data *param)
 {
 	if (ray->dir_x < 0)
 	{
-		ray->step_y = -1;
+		ray->step_x = -1;
 		ray->sd_x = (param->x_pos - ray->map_x) * ray->dd_x;
 	}
 	else
 	{
-		ray->step_y = 1;
+		ray->step_x = 1;
 		ray->sd_x = (ray->map_x + 1.0 - param->x_pos) * ray->dd_x;
 	}
 	if (ray->dir_y < 0)
@@ -64,6 +64,6 @@ void	ray_casting(t_data *param)
 	{
 		basic_setter(&ray, param, x);
 		set_step_and_sd(&ray, param);
-		texture(&ray, param);
+		texture(x, &ray, param);
 	}
 }

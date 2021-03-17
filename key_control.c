@@ -6,67 +6,68 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:13:58 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/11 17:09:47 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/17 16:33:23 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int		key_control(int key, t_data *param)
+int key_control(int key, t_data *param)
 {
+	double oldd_x, oldp_x;
 	if (key == 53)
 		exit(0);
-	double sdirX, sdirY;
-	sdirX = dirX * cos(1.571) - dirY * sin(1.571);
-    sdirY = dirX * sin(1.571) + dirY * cos(1.571);
 
-	if (key == key_w || key == arr_up)
+	param->vx_dir = param->x_dir * cos(1.571) - param->y_dir * sin(1.571);
+	param->vy_dir = param->x_dir * sin(1.571) + param->y_dir * cos(1.571);
+
+	if (key == KEY_W || key == AR_UP)
 	{
-      if(g_worldMap[(int)(posX + dirX * moveSpeed)][(int)posY] == 0)
-	  	posX += dirX * moveSpeed;
-      if(g_worldMap[(int)posX][(int)(posY + dirY * moveSpeed)] == 0)
-	  	posY += dirY * moveSpeed;
-    }
-	if (key == key_s || key == arr_down)
-	{
-      if(g_worldMap[(int)(posX - dirX * moveSpeed)][(int)posY] == 0)
-	  	posX -= dirX * moveSpeed;
-      if(g_worldMap[(int)posX][(int)(posY - dirY * moveSpeed)] == 0)
-	  	posY -= dirY * moveSpeed;
-    }
-	if (key == key_a)
-	{
-		if(g_worldMap[(int)(posX + sdirX * moveSpeed)][(int)posY] == 0)
-	  		posX += sdirX * moveSpeed;
-      	if(g_worldMap[(int)posX][(int)(posY + sdirY * moveSpeed)] == 0)
-	  		posY += sdirY * moveSpeed;
+		if (g_worldMap[(int)(param->x_pos + param->x_dir * MVSPD)][(int)param->y_pos] == 0)
+			param->x_pos += param->x_dir * MVSPD;
+		if (g_worldMap[(int)param->x_pos][(int)(param->y_pos + param->y_dir * MVSPD)] == 0)
+			param->y_pos += param->y_dir * MVSPD;
 	}
-	if (key == key_d)
+	if (key == KEY_S || key == AR_DW)
 	{
-		if(g_worldMap[(int)(posX - sdirX * moveSpeed)][(int)posY] == 0)
-	  		posX -= sdirX * moveSpeed;
-      	if(g_worldMap[(int)posX][(int)(posY - sdirY * moveSpeed)] == 0)
-	  		posY -= sdirY * moveSpeed;
+		if (g_worldMap[(int)(param->x_pos - param->x_dir * MVSPD)][(int)param->y_pos] == 0)
+			param->x_pos -= param->x_dir * MVSPD;
+		if (g_worldMap[(int)param->x_pos][(int)(param->y_pos - param->y_dir * MVSPD)] == 0)
+			param->y_pos -= param->y_dir * MVSPD;
 	}
-	if (key == arr_left)
+	if (key == KEY_A)
 	{
-      //both camera direction and camera plane must be rotated
-      double oldDirX = dirX;
-      dirX = dirX * cos(rotSpeed) - dirY * sin(rotSpeed);
-      dirY = oldDirX * sin(rotSpeed) + dirY * cos(rotSpeed);
-      double oldPlaneX = planeX;
-      planeX = planeX * cos(rotSpeed) - planeY * sin(rotSpeed);
-      planeY = oldPlaneX * sin(rotSpeed) + planeY * cos(rotSpeed);
-    }
-	if (key == arr_right)
+		if (g_worldMap[(int)(param->x_pos + param->vx_dir * MVSPD)][(int)param->y_pos] == 0)
+			param->x_pos += param->vx_dir * MVSPD;
+		if (g_worldMap[(int)param->x_pos][(int)(param->y_pos + param->vy_dir * MVSPD)] == 0)
+			param->y_pos += param->vy_dir * MVSPD;
+	}
+	if (key == KEY_D)
 	{
-      //both camera direction and camera plane must be rotated
-      double oldDirX = dirX;
-      dirX = dirX * cos(-rotSpeed) - dirY * sin(-rotSpeed);
-      dirY = oldDirX * sin(-rotSpeed) + dirY * cos(-rotSpeed);
-      double oldPlaneX = planeX;
-      planeX = planeX * cos(-rotSpeed) - planeY * sin(-rotSpeed);
-      planeY = oldPlaneX * sin(-rotSpeed) + planeY * cos(-rotSpeed);
-    }
+		if (g_worldMap[(int)(param->x_pos - param->vx_dir * MVSPD)][(int)param->y_pos] == 0)
+			param->x_pos -= param->vx_dir * MVSPD;
+		if (g_worldMap[(int)param->x_pos][(int)(param->y_pos - param->vy_dir * MVSPD)] == 0)
+			param->y_pos -= param->vy_dir * MVSPD;
+	}
+	if (key == AR_LT)
+	{
+		//both camera direction and camera plane must be rotated
+		oldd_x = param->x_dir;
+		param->x_dir = param->x_dir * cos(RTSPD) - param->y_dir * sin(RTSPD);
+		param->y_dir = oldd_x * sin(RTSPD) + param->y_dir * cos(RTSPD);
+		oldp_x = param->x_plane;
+		param->x_plane = param->x_plane * cos(RTSPD) - param->y_plane * sin(RTSPD);
+		param->y_plane = oldp_x * sin(RTSPD) + param->y_plane * cos(RTSPD);
+	}
+	if (key == AR_RT)
+	{
+		//both camera direction and camera plane must be rotated
+		oldd_x = param->x_dir;
+		param->x_dir = param->x_dir * cos(-RTSPD) - param->y_dir * sin(-RTSPD);
+		param->y_dir = oldd_x * sin(-RTSPD) + param->y_dir * cos(-RTSPD);
+		oldp_x = param->x_plane;
+		param->x_plane = param->x_plane * cos(-RTSPD) - param->y_plane * sin(-RTSPD);
+		param->y_plane = oldp_x * sin(-RTSPD) + param->y_plane * cos(-RTSPD);
+	}
 	return (0);
 }
