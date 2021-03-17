@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:56:52 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/17 16:46:42 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/17 21:50:43 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,13 @@ typedef struct  s_tex
   int  bpp;
   int  ls;
   int  en;
+
+  double wall_x;
+  int cord_tx;
+  int cord_ty;
+  double step;
+  double pos_t;
+
 } t_tex;
 
 typedef struct	s_data{
@@ -66,8 +73,8 @@ typedef struct	s_data{
   double        x_plane;
   double        y_plane;
 
-  double        vx_dir;
-  double        vy_dir;
+  double        orthogonal_x;
+  double        orthogonal_y;
 
   t_tex         nr;
   t_tex         st;
@@ -75,7 +82,7 @@ typedef struct	s_data{
   t_tex         we;
 }			            t_data;
 
-typedef struct  s_ray{
+typedef struct	s_ray{
     double      camera_x;
     double      dir_x;
 		double      dir_y;
@@ -95,19 +102,19 @@ typedef struct  s_ray{
 
 		int         hit;
 		int         side;
-}               t_ray;
+}								t_ray;
 
-typedef struct  s_stripe{
+typedef struct	s_stripe{
   int height;
   int start;
   int end;
-}              t_stripe;
+}								t_stripe;
 
 
-int key_control(int key, t_data *param);
-int mouse_move(int x, int y, t_data *param);
-int close(void *param);
-void  ray_casting(t_data *param);
+int	key_control(int key, t_data *param);
+int	mouse_move(int x, int y, t_data *param);
+int	close(void *param);
+void	ray_casting(t_data *param);
 void	texture(int x, t_ray *ray, t_data *param);
 
 #endif
