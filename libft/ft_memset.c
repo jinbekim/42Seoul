@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 16:58:59 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 21:03:31 by jinbekim         ###   ########.fr       */
+/*   Created: 2020/12/21 23:30:17 by jinbekim          #+#    #+#             */
+/*   Updated: 2020/12/28 02:20:09 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-int	close(void *param)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	(void)param;
-	exit(0);
+	size_t	i;
+	char	*b1;
+
+	b1 = b;
+	i = 0;
+	while (i < len)
+	{
+		b1[i] = (unsigned char)c;
+		i++;
+	}
+	return (b);
 }

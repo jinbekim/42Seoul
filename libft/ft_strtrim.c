@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 16:58:59 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 21:03:31 by jinbekim         ###   ########.fr       */
+/*   Created: 2020/12/23 21:52:13 by jinbekim          #+#    #+#             */
+/*   Updated: 2020/12/28 01:49:45 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-int	close(void *param)
+char			*ft_strtrim(char const *s1, char const *set)
 {
-	(void)param;
-	exit(0);
+	size_t		end;
+
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	end = ft_strlen(s1);
+	while (end && ft_strchr(set, s1[end]))
+		end--;
+	return (ft_substr(s1, 0, end + 1));
 }

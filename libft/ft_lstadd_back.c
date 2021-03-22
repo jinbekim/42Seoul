@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 16:58:59 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 21:03:31 by jinbekim         ###   ########.fr       */
+/*   Created: 2020/12/25 21:47:48 by jinbekim          #+#    #+#             */
+/*   Updated: 2020/12/27 23:35:16 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-int	close(void *param)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	(void)param;
-	exit(0);
+	if (lst)
+	{
+		if (*lst == NULL)
+		{
+			*lst = new;
+		}
+		else
+		{
+			ft_lstlast(*lst)->next = new;
+		}
+	}
 }

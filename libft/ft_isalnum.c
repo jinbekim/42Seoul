@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 16:58:59 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 21:03:31 by jinbekim         ###   ########.fr       */
+/*   Created: 2020/12/21 16:00:45 by jinbekim          #+#    #+#             */
+/*   Updated: 2020/12/21 16:03:10 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
-
-int	close(void *param)
+int		ft_isalnum(int arg)
 {
-	(void)param;
-	exit(0);
+	if ('0' <= arg && arg <= '9')
+		return (1);
+	if ('a' <= arg && arg <= 'z')
+		return (1);
+	if ('A' <= arg && arg <= 'Z')
+		return (1);
+	return (0);
 }

@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 16:58:59 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 21:03:31 by jinbekim         ###   ########.fr       */
+/*   Created: 2020/12/23 20:48:51 by jinbekim          #+#    #+#             */
+/*   Updated: 2020/12/28 01:03:48 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-int	close(void *param)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	(void)param;
-	exit(0);
+	char	*arr;
+	size_t	i;
+
+	i = 0;
+	if (ft_strlen(s) <= start)
+		return (ft_strdup(""));
+	if (!(arr = malloc(len + 1)))
+		return (0);
+	while ((i < len) && s[i + start])
+	{
+		arr[i] = s[i + start];
+		i++;
+	}
+	arr[i] = 0;
+	return (arr);
 }

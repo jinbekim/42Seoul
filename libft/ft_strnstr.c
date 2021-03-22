@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 16:58:59 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 21:03:31 by jinbekim         ###   ########.fr       */
+/*   Created: 2020/12/21 20:56:47 by jinbekim          #+#    #+#             */
+/*   Updated: 2020/12/30 02:06:34 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-int	close(void *param)
+char		*ft_strnstr(const char *hay, const char *nee, size_t len)
 {
-	(void)param;
-	exit(0);
+	size_t	n;
+
+	n = ft_strlen(nee);
+	if (n == 0)
+		return ((char *)hay);
+	while (*hay && len >= n)
+	{
+		if (*hay == *nee && !(ft_strncmp(hay, nee, n)))
+			return ((char *)hay);
+		hay++;
+		len--;
+	}
+	return (NULL);
 }

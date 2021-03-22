@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 16:58:59 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 21:03:31 by jinbekim         ###   ########.fr       */
+/*   Created: 2020/12/21 20:02:16 by jinbekim          #+#    #+#             */
+/*   Updated: 2020/12/28 01:19:59 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-int	close(void *param)
+size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	(void)param;
-	exit(0);
+	size_t	dstlen;
+	size_t	srclen;
+	size_t	i;
+
+	i = 0;
+	srclen = ft_strlen(src);
+	dstlen = ft_strlen(dst);
+	if (dstlen >= dstsize)
+		return (srclen + dstsize);
+	while ((dstsize > dstlen + i + 1) && src[i])
+	{
+		dst[dstlen + i] = src[i];
+		i++;
+	}
+	dst[dstlen + i] = '\0';
+	return (dstlen + srclen);
 }

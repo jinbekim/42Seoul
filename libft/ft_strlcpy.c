@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 16:58:59 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 21:03:31 by jinbekim         ###   ########.fr       */
+/*   Created: 2020/12/21 17:10:40 by jinbekim          #+#    #+#             */
+/*   Updated: 2020/12/28 01:19:48 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-int	close(void *param)
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	(void)param;
-	exit(0);
+	size_t i;
+
+	i = 0;
+	while ((dstsize > (i + 1)) && (src[i]))
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	if (dstsize > 0)
+		dst[i] = '\0';
+	return (ft_strlen(src));
 }

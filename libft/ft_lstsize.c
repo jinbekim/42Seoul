@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 16:58:59 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 21:03:31 by jinbekim         ###   ########.fr       */
+/*   Created: 2020/12/25 21:42:41 by jinbekim          #+#    #+#             */
+/*   Updated: 2020/12/27 22:56:33 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-int	close(void *param)
+int			ft_lstsize(t_list *lst)
 {
-	(void)param;
-	exit(0);
+	int		count;
+	t_list	*tmp;
+
+	count = 0;
+	if (lst != NULL)
+	{
+		count++;
+		tmp = lst;
+		while (tmp->next)
+		{
+			count++;
+			tmp = tmp->next;
+		}
+	}
+	return (count);
 }

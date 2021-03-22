@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 16:58:59 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 21:03:31 by jinbekim         ###   ########.fr       */
+/*   Created: 2020/12/21 20:54:12 by jinbekim          #+#    #+#             */
+/*   Updated: 2020/12/28 01:17:18 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-int	close(void *param)
+char		*ft_strrchr(const char *s, int c)
 {
-	(void)param;
-	exit(0);
+	int	i;
+
+	i = (int)ft_strlen(s);
+	while (i >= 0)
+	{
+		if (s[i] == c)
+			return ((char *)&s[i]);
+		i--;
+	}
+	return (0);
 }

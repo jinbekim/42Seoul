@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.k>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 16:58:59 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 21:03:31 by jinbekim         ###   ########.fr       */
+/*   Created: 2020/12/22 16:11:34 by jinbekim          #+#    #+#             */
+/*   Updated: 2020/12/28 14:58:48 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-int	close(void *param)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	(void)param;
-	exit(0);
+	size_t				i;
+	const unsigned char	*s1;
+
+	i = 0;
+	s1 = s;
+	while (i < n)
+	{
+		if (s1[i] == (unsigned char)c)
+			return ((void *)&s1[i]);
+		i++;
+	}
+	return (0);
 }

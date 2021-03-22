@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 16:58:59 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 21:03:31 by jinbekim         ###   ########.fr       */
+/*   Created: 2020/12/21 23:38:08 by jinbekim          #+#    #+#             */
+/*   Updated: 2020/12/28 22:45:33 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-int	close(void *param)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	(void)param;
-	exit(0);
+	size_t		i;
+	char		*cst;
+	char		*crc;
+
+	if (!dst && !src)
+		return (NULL);
+	i = 0;
+	cst = dst;
+	crc = (char *)src;
+	while (i < n)
+	{
+		cst[i] = crc[i];
+		i++;
+	}
+	return (dst);
 }

@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 16:58:59 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 21:03:31 by jinbekim         ###   ########.fr       */
+/*   Created: 2020/12/25 20:22:03 by jinbekim          #+#    #+#             */
+/*   Updated: 2020/12/29 17:48:43 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-int	close(void *param)
+t_list	*ft_lstnew(void *content)
 {
-	(void)param;
-	exit(0);
+	t_list *lstnew;
+
+	if (!(lstnew = malloc(sizeof(t_list))))
+		return (0);
+	lstnew->content = content;
+	lstnew->next = NULL;
+	return (lstnew);
 }

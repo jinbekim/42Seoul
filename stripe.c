@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stripe.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:55:41 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 00:07:33 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/23 02:12:01 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	cast_ray(t_ray *ray)
 			if (ray->dir_y < 0)
 				ray->side = 3;
 		}
-		if (g_worldMap[ray->map_x][ray->map_y] > 0)
+		if (g_worldMap[ray->map_x][ray->map_y] == 1)
 			ray->hit = 1;
 	}
 }
@@ -72,25 +72,6 @@ static void	get_tx_ty(t_ray *ray, t_data *param, t_tex *aspect, t_stripe stripe)
 	 = (stripe.start - SC_H / 2 + stripe.height / 2) * aspect->step;
 }
 
-static int	fade_color(int color, t_stripe stripe)
-{
-	double	fade;
-	double	pwd;
-	int	r;
-	int	g;
-	int	b;
-
-	pwd = 1 / (stripe.height / (double)SC_H);
-	fade = pwd / (double)24 * 10;
-	fade = 1 / fade + 0.2;
-	if (fade > 1)
-		fade = 1;
-	r = (int)((int)((color & 0xff0000) * fade) & 0xff0000);
-	g = (int)((int)((color & 0x00ff00) * fade) & 0x00ff00);
-	b = (int)((int)((color & 0x0000ff) * fade) & 0x0000ff);
-	return (r + g + b);
-}
-
 static void	set_color(int x, t_data *param, t_tex *tex, t_stripe stripe)
 {
 	int	y;
@@ -103,7 +84,7 @@ static void	set_color(int x, t_data *param, t_tex *tex, t_stripe stripe)
 			tex->cord_ty = (int)tex->pos_t & (tex->t_height - 1);
 			tex->pos_t += tex->step;
 			param->data[y * SC_W + x] \
-			 = fade_color(tex->data[tex->t_width * tex->cord_ty + tex->cord_tx], stripe);
+			 = tex->data[tex->t_width * tex->cord_ty + tex->cord_tx];
 		}
 	}
 }

@@ -1,19 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 16:58:59 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 21:03:31 by jinbekim         ###   ########.fr       */
+/*   Created: 2020/12/25 22:24:16 by jinbekim          #+#    #+#             */
+/*   Updated: 2020/12/28 23:15:22 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-int	close(void *param)
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	(void)param;
-	exit(0);
+	t_list	*curr;
+	t_list	*head;
+
+	if (!(lst && f))
+		return (0);
+	curr = NULL;
+	head = curr;
+	while (lst)
+	{
+		curr = ft_lstnew(f(lst->content));
+		if (!curr)
+		{
+			ft_lstclear(&head, del);
+			return (0);
+		}
+		ft_lstadd_back(&head, curr);
+		lst = lst->next;
+	}
+	return (head);
 }
