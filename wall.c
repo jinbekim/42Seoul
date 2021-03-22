@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray_casting.c                                      :+:      :+:    :+:   */
+/*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:52:03 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/17 16:43:22 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/21 23:44:20 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	set_step_and_sd(t_ray *ray, t_data *param)
 	}
 }
 
-void	ray_casting(t_data *param)
+void	wall(t_data *param)
 {
 	int		x;
 	t_ray	ray;
@@ -64,6 +64,6 @@ void	ray_casting(t_data *param)
 	{
 		basic_setter(&ray, param, x);
 		set_step_and_sd(&ray, param);
-		texture(x, &ray, param);
+		stripe(x, &ray, param);
 	}
 }

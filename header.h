@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:56:52 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/17 21:50:43 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/21 23:47:47 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,8 @@ typedef struct	s_stripe{
 int	key_control(int key, t_data *param);
 int	mouse_move(int x, int y, t_data *param);
 int	close(void *param);
-void	ray_casting(t_data *param);
-void	texture(int x, t_ray *ray, t_data *param);
-
+void	wall(t_data *param);
+void	stripe(int x, t_ray *ray, t_data *param);
+void	floor_ceil(t_data *param);
+void  sprite(t_data *param);
 #endif

@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+         #
+#    By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/27 02:51:58 by jinbekim          #+#    #+#              #
-#    Updated: 2021/03/17 17:34:01 by jinbekim         ###   ########.fr        #
+#    Updated: 2021/03/22 00:00:21 by jinbekim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 NAME = cub3d.out
-SRC = main.c key_control.c close.c mouse_move.c ray_casting.c texture.c
+SRC = main.c key_control.c close.c mouse_move.c wall.c stripe.c floor_ceil.c sprite.c
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   texture.c                                          :+:      :+:    :+:   */
+/*   stripe.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:55:41 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/17 21:49:49 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/22 00:07:33 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ static void	cast_ray(t_ray *ray)
 static void	get_stripe_dist(t_stripe *stripe, t_ray *ray, t_data *param)
 {
 	if (ray->side == 0 || ray->side == 2)
-		ray->pwd = (ray->map_x - param->x_pos \
-		 + (1 - ray->step_x) / 2) / ray->dir_x;
+		ray->pwd \
+		 = (ray->map_x - param->x_pos + (1 - ray->step_x) / 2) / ray->dir_x;
 	else
-		ray->pwd = (ray->map_y - param->y_pos \
-		 + (1 - ray->step_y) / 2) / ray->dir_y;
+		ray->pwd \
+		 = (ray->map_y - param->y_pos + (1 - ray->step_y) / 2) / ray->dir_y;
 	stripe->height = (int)(SC_H / ray->pwd);
 	stripe->start = -stripe->height / 2 + SC_H / 2;
 	stripe->end = stripe->height / 2 + SC_H / 2;
@@ -68,30 +68,47 @@ static void	get_tx_ty(t_ray *ray, t_data *param, t_tex *aspect, t_stripe stripe)
 	if (ray->side == 1 && ray->dir_y < 0)
 		aspect->cord_tx = aspect->t_width - aspect->cord_tx - 1;
 	aspect->step = 1.0 * aspect->t_height / stripe.height;
-	aspect->pos_t = (stripe.start - SC_H / 2 + stripe.height / 2) * aspect->step;
+	aspect->pos_t \
+	 = (stripe.start - SC_H / 2 + stripe.height / 2) * aspect->step;
+}
+
+static int	fade_color(int color, t_stripe stripe)
+{
+	double	fade;
+	double	pwd;
+	int	r;
+	int	g;
+	int	b;
+
+	pwd = 1 / (stripe.height / (double)SC_H);
+	fade = pwd / (double)24 * 10;
+	fade = 1 / fade + 0.2;
+	if (fade > 1)
+		fade = 1;
+	r = (int)((int)((color & 0xff0000) * fade) & 0xff0000);
+	g = (int)((int)((color & 0x00ff00) * fade) & 0x00ff00);
+	b = (int)((int)((color & 0x0000ff) * fade) & 0x0000ff);
+	return (r + g + b);
 }
 
 static void	set_color(int x, t_data *param, t_tex *tex, t_stripe stripe)
 {
-	int y;
+	int	y;
 
 	y = -1;
 	while (++y < SC_H)
 	{
-		if (y < stripe.start)
-			param->data[y * SC_W + x] = 0x0000ee;
-		else if (y > stripe.end)
-			param->data[y * SC_W + x] = 0x008800;
-		if (y > stripe.start && y < stripe.end)
+		if (y >= stripe.start && y <= stripe.end)
 		{
-			tex->cord_ty = (int)tex->pos_t & (tex->t_height -1);
+			tex->cord_ty = (int)tex->pos_t & (tex->t_height - 1);
 			tex->pos_t += tex->step;
-			param->data[y * SC_W + x] = tex->data[tex->t_width * tex->cord_ty + tex->cord_tx];
+			param->data[y * SC_W + x] \
+			 = fade_color(tex->data[tex->t_width * tex->cord_ty + tex->cord_tx], stripe);
 		}
 	}
 }
 
-void	texture(int x, t_ray *ray, t_data *param)
+void	stripe(int x, t_ray *ray, t_data *param)
 {
 	t_stripe	stripe;
 	t_tex		*tex;
