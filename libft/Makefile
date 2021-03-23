@@ -6,13 +6,14 @@
 #    By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/22 18:47:30 by jinbekim          #+#    #+#              #
-#    Updated: 2020/12/29 17:53:08 by jinbekim         ###   ########.fr        #
+#    Updated: 2021/03/23 21:15:09 by jinbekim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
+INC = -I./includes
 AR = ar rcs
 
 FUNC = ft_atoi \
@@ -48,9 +49,10 @@ FUNC = ft_atoi \
 	ft_putstr_fd \
 	ft_putendl_fd \
 	ft_putnbr_fd \
-	ft_substr
-
-FUNCB = ft_lstnew \
+	ft_substr \
+	get_next_line \
+	get_next_line_utils \
+	ft_lstnew \
 	ft_lstadd_front \
 	ft_lstsize \
 	ft_lstlast \
@@ -60,24 +62,21 @@ FUNCB = ft_lstnew \
 	ft_lstiter \
 	ft_lstmap
 
-OBJS = $(addsuffix .o, $(FUNC))
-SRCS = $(OBJS:.o=.c)
-
-OBJB = $(addsuffix .o, $(FUNCB))
-SRCB = $(OBJB:.o=.c)
+OBJS = $(addprefix objs/, $(addsuffix .o, $(FUNC)))
+SRCS = $(addprefix srcs/, $(addsuffix .c, $(FUNC)))
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(AR) $@ $?
 
+objs/%.o : srcs/%.c
+	$(CC) $(CFLAGS) $(INC) -c -o $@ $?
+
 .PHONY : clean fclean re bonus
 
-bonus : $(OBJS) $(OBJB)
-	$(AR) $(NAME) $?
-
 clean :
-	$(RM) $(OBJS) $(OBJB)
+	$(RM) $(OBJS)
 
 fclean : clean
 	$(RM) $(NAME)

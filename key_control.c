@@ -6,11 +6,11 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:13:58 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/17 17:52:32 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/23 05:54:33 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "./includes/cub3d.h"
 
 static void	move_left_right(int key, t_data *param)
 {
@@ -77,7 +77,7 @@ static void	rotate_fov(int key, t_data *param)
 
 int	key_control(int key, t_data *param)
 {
-	if (key == 53)
+	if (key == KEY_ESC)
 		exit(0);
 	move_fwd_bck(key, param);
 	move_left_right(key, param);

@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   floor_ceil.c                                       :+:      :+:    :+:   */
+/*   keycode.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/21 23:38:22 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/23 04:02:05 by jinbekim         ###   ########.fr       */
+/*   Created: 2021/03/23 03:09:56 by jinbekim          #+#    #+#             */
+/*   Updated: 2021/03/23 04:25:07 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3d.h"
+#ifndef KEYCODE_H
+# define KEYCODE_H
 
-void	floor_ceil(t_data *param)
-{
-	int	x;
-	int	y;
-
-	x = -1;
-	while (++x < SC_W)
-	{
-		y = -1;
-		while (++y < SC_H)
-		{
-			if (y < (SC_H / 2))
-				param->data[y * SC_W + x] = 0x00ff00;
-			else
-				param->data[y * SC_W + x] = 0x0000ff;
-		}
-	}
-}
+# define KEY_W 13
+# define KEY_S 1
+# define KEY_A 0
+# define KEY_D 2
+# define KEY_ESC 53
+# define AR_LT 123
+# define AR_RT 124
+# define AR_UP 126
+# define AR_DW 125
+# define KEY_PRESS 2
+# define KEY_RELEASE 3
+# define BTN_PRESS 4
+# define BTN_RELEASE 5
+# define RED_CROSS 17
+# define MOUSE_MOTION 6
+#endif

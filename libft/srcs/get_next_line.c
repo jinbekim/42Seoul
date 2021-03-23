@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 19:22:33 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/03 16:37:08 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/23 21:14:01 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		eof_return(int readsize, char **backup, char **line)
+static int	eof_return(int readsize, char **backup, char **line)
 {
 	if (!(*backup))
 	{
@@ -29,7 +29,7 @@ int		eof_return(int readsize, char **backup, char **line)
 	return (readsize);
 }
 
-char	*return_line(char *backup)
+static char	*return_line(char *backup)
 {
 	int		i;
 	int		j;
@@ -52,7 +52,7 @@ int		get_next_line(int fd, char **line)
 {
 	int				readsize;
 	char			buff[BUFFER_SIZE + 1];
-	static char		*backup[OPEN_MAX] = {0, };
+	static char		*backup[OPEN_MAX];
 
 	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0 || !line)
 		return (-1);

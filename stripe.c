@@ -6,11 +6,11 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:55:41 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/23 02:12:01 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/23 04:02:34 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "./includes/cub3d.h"
 
 static void	cast_ray(t_ray *ray)
 {

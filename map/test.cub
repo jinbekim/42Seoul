@@ -1,8 +1,8 @@
 R 1920 1080
 NO ./textures/greystone.xpm
-SO ./textures/greystone.xpm
-WE ./textures/greystone.xpm
-EA ./textures/greystone.xpm
+SO ./textures/redbrick.xpm
+WE ./textures/purplestone.xpm
+EA ./textures/wood.xpm
 
 S ./textures/barrel.xpm
 F 220,100,0

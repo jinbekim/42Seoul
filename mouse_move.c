@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_move.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:11:43 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/22 00:11:10 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/23 04:02:23 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "./includes/cub3d.h"
 
 int	mouse_move(int x, int y, t_data *param)
 {

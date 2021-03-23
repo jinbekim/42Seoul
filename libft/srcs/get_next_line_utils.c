@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 22:10:20 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/03 16:37:08 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/23 21:13:48 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int			has_newline(char *backup)
+int	has_newline(char *backup)
 {
 	int		i;
 
@@ -28,7 +28,7 @@ int			has_newline(char *backup)
 	return (-1);
 }
 
-void		cut_with_newline(char **backup)
+void	cut_with_newline(char **backup)
 {
 	int		i;
 	char	*tmp;
@@ -45,35 +45,7 @@ void		cut_with_newline(char **backup)
 	free(tmp);
 }
 
-int			ft_strlen(char *s)
-{
-	int index;
-
-	index = 0;
-	while (s[index])
-		index++;
-	return (index);
-}
-
-char		*ft_strdup(char *s1)
-{
-	int		len;
-	char	*c1;
-
-	len = ft_strlen(s1);
-	if (!(c1 = (char *)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	c1[len] = 0;
-	len = 0;
-	while (s1[len])
-	{
-		c1[len] = s1[len];
-		len++;
-	}
-	return (c1);
-}
-
-char		*ft_strjoin_free(char *s1, char *s2)
+char	*ft_strjoin_free(char *s1, char *s2)
 {
 	int		len1;
 	int		len2;

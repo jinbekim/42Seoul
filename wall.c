@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:52:03 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/21 23:44:20 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/23 04:02:38 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "./includes/cub3d.h"
 
 static double	ft_abs(double x)
 {
