@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_map.c                                       :+:      :+:    :+:   */
+/*   error_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 23:04:28 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/24 00:28:35 by jinbekim         ###   ########.fr       */
+/*   Created: 2021/03/23 19:29:49 by jinbekim          #+#    #+#             */
+/*   Updated: 2021/03/25 06:33:21 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/cub3d.h"
 
-void	parser_map(char *line, t_camera *parsed)
+void	error_exit(void)
 {
-
+	perror("Error\n");
+	exit(0);
 }

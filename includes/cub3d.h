@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:56:52 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/23 23:03:08 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/25 03:41:16 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,30 @@
 # include <fcntl.h>
 # include <errno.h>
 # include "keycode.h"
-# include "structure.h"
-# include "../mlx/mlx.h"
 # include "../libft/includes/libft.h"
+# include "structure.h"
+# include "../mlx_beta/mlx.h"
 
 # define MVSPD 0.2
 # define RTSPD 0.08
 
-int	mouse_move(int x, int y, t_camera *parsed);
-int	key_control(int key, t_camera *parsed);
+/*parse_config3.c*/
+int	mouse_move(int x, int y, t_config *config);
+int	key_control(int key, t_config *config);
 int	game_close(void *param);
-void	parsing(const char *file_path, t_camera *parsed);
-void	error_handling(int errnum);
+
+/*parse_config3.c*/
+int	parser_r(char *line, t_config *config);
+int	parser_tex(char *line, t_tex *tex, t_config *config);
+int	parser_bg(char *line, int *color);
+
+/*parse_config2.c*/
+void	set_map_conf(t_config *config);
+
+/*parse_config.c*/
+int	parse_config(const char *file_path, t_config *config);
+
+/*erro_exit.c*/
+void	error_exit();
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 03:13:37 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/23 20:57:57 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/25 04:16:15 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ typedef struct	s_cord{
 	int	y;
 }				t_cord;
 
-typedef struct	s_tex
-{
+typedef struct	s_tex{
 	void	*img;
 	int	*addr;
 	int	width;
@@ -39,7 +38,13 @@ typedef struct	s_tex
 	t_cord	cord;
 }				t_tex;
 
-typedef struct	s_camera{
+typedef struct	s_sprite{
+	double	x;
+	double	y;
+	int	order;
+}				t_sprite;
+
+typedef struct	s_config{
 	void	*mlx;
 	void	*win;
 	void	*img;
@@ -49,21 +54,22 @@ typedef struct	s_camera{
 	int	ls;
 	int	en;
 
-	t_cord	screen;
 	t_cord	map;
 	t_vec	pos;
 	t_vec	dir;
 	t_vec	plane;
 	char	**cub;
-
-	t_tex	sprite;
+	t_list	*head;
+	int	sprite_num;
+	t_cord	screen;
+	t_tex	sp;
 	t_tex	no;
 	t_tex	so;
 	t_tex	we;
 	t_tex	ea;
 	int	floor_color;
 	int	ceil_color;
-}				t_camera;
+}				t_config;
 
 typedef struct	s_ray{
 	t_vec	dir;
