@@ -6,18 +6,18 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:11:43 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/23 04:02:23 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/25 23:15:19 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/cub3d.h"
 
-int	mouse_move(int x, int y, t_data *param)
+int	mouse_move(int x, int y, t_config *config)
 {
 	static double s_rot;
 	static int ex_x;
-	double oldDirX = param->x_dir;
-	double oldPlaneX = param->x_plane;
+	double oldDirX = config->dir.x;
+	double oldPlaneX = config->plane.x;
 
 	if (ex_x > x)
 	{
@@ -29,15 +29,15 @@ int	mouse_move(int x, int y, t_data *param)
 		s_rot = 1;
 		ex_x = x;
 	}
-	if (x > SC_W || x < 0 || y > SC_H || y < 0)
+	if (x > config->screen.x || x < 0 || y > config->screen.y || y < 0)
 		s_rot = 0;
-	param->x_dir = \
-	 param->x_dir * cos(-RTSPD * s_rot) - param->y_dir * sin(-RTSPD * s_rot);
-	param->y_dir = \
-	 oldDirX * sin(-RTSPD * s_rot) + param->y_dir * cos(-RTSPD * s_rot);
-	param->x_plane = \
-	 param->x_plane * cos(-RTSPD * s_rot) - param->y_plane * sin(-RTSPD * s_rot);
-	param->y_plane = \
-	 oldPlaneX * sin(-RTSPD * s_rot) + param->y_plane * cos(-RTSPD * s_rot);
+	config->dir.x = \
+	 config->dir.x * cos(-RTSPD * s_rot) - config->dir.y * sin(-RTSPD * s_rot);
+	config->dir.y = \
+	 oldDirX * sin(-RTSPD * s_rot) + config->dir.y * cos(-RTSPD * s_rot);
+	config->plane.x = \
+	 config->plane.x * cos(-RTSPD * s_rot) - config->plane.y * sin(-RTSPD * s_rot);
+	config->plane.y = \
+	 oldPlaneX * sin(-RTSPD * s_rot) + config->plane.y * cos(-RTSPD * s_rot);
 	return (0);
 }

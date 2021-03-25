@@ -6,64 +6,65 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:52:03 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/23 04:02:38 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/26 05:14:23 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/cub3d.h"
 
-static double	ft_abs(double x)
+double	ft_abs(double x)
 {
 	if (x > 0)
 		return (x);
 	return (-x);
 }
 
-static void	basic_setter(t_ray *ray, t_data *param, int x)
+static void	set_ray_conf(t_ray *ray, t_config *config, int x)
 {
-	ray->camera_x = 2 * x / (double)SC_W - 1;
-	ray->dir_x = param->x_dir + param->x_plane * ray->camera_x;
-	ray->dir_y = param->y_dir + param->y_plane * ray->camera_x;
-	ray->dd_x = ft_abs(1 / ray->dir_x);
-	ray->dd_y = ft_abs(1 / ray->dir_y);
-	ray->map_x = (int)param->x_pos;
-	ray->map_y = (int)param->y_pos;
+	ray->camera_x = 2 * x / (double)config->screen.x - 1;
+	ray->dir.x = config->dir.x + config->plane.x * ray->camera_x;
+	ray->dir.y = config->dir.y + config->plane.y * ray->camera_x;
+	ray->delta_d.x = ft_abs(1 / ray->dir.x);
+	ray->delta_d.y = ft_abs(1 / ray->dir.y);
+	ray->map.x = (int)config->pos.x;
+	ray->map.y = (int)config->pos.y;
+	ray->hit = 0;
 }
 
-static void	set_step_and_sd(t_ray *ray, t_data *param)
+static void	set_ray_step_sd(t_ray *ray, t_config *config)
 {
-	if (ray->dir_x < 0)
+	if (ray->dir.x < 0)
 	{
-		ray->step_x = -1;
-		ray->sd_x = (param->x_pos - ray->map_x) * ray->dd_x;
+		ray->step.x = -1;
+		ray->side_d.x = (config->pos.x - ray->map.x) * ray->delta_d.x;
 	}
 	else
 	{
-		ray->step_x = 1;
-		ray->sd_x = (ray->map_x + 1.0 - param->x_pos) * ray->dd_x;
+		ray->step.x = 1;
+		ray->side_d.x = (ray->map.x + 1.0 - config->pos.x) * ray->delta_d.x;
 	}
-	if (ray->dir_y < 0)
+	if (ray->dir.y < 0)
 	{
-		ray->step_y = -1;
-		ray->sd_y = (param->y_pos - ray->map_y) * ray->dd_y;
+		ray->step.y = -1;
+		ray->side_d.y = (config->pos.y - ray->map.y) * ray->delta_d.y;
 	}
 	else
 	{
-		ray->step_y = 1;
-		ray->sd_y = (ray->map_y + 1.0 - param->y_pos) * ray->dd_y;
+		ray->step.y = 1;
+		ray->side_d.y = (ray->map.y + 1.0 - config->pos.y) * ray->delta_d.y;
 	}
 }
 
-void	wall(t_data *param)
+void	wall(t_config *config)
 {
 	int		x;
 	t_ray	ray;
 
 	x = -1;
-	while (++x < SC_W)
+	while (++x < config->screen.x)
 	{
-		basic_setter(&ray, param, x);
-		set_step_and_sd(&ray, param);
-		stripe(x, &ray, param);
+		set_ray_conf(&ray, config, x);
+		set_ray_step_sd(&ray, config);
+		ray_cast(x, &ray, config);
 	}
 }

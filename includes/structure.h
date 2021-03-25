@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 03:13:37 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/25 04:16:15 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/26 05:15:49 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ typedef struct	s_cord{
 	int	x;
 	int	y;
 }				t_cord;
+
+typedef struct	s_stripe{
+	int	len;
+	int	start;
+	int	end;
+}				t_stripe;
 
 typedef struct	s_tex{
 	void	*img;
@@ -39,9 +45,13 @@ typedef struct	s_tex{
 }				t_tex;
 
 typedef struct	s_sprite{
-	double	x;
-	double	y;
+	t_vec	pos;
+	t_vec	re_pos;
+	t_vec	trans_pos;
 	int	order;
+	double	dist;
+	t_stripe	draw_y;
+	t_stripe	draw_x;
 }				t_sprite;
 
 typedef struct	s_config{
@@ -69,6 +79,7 @@ typedef struct	s_config{
 	t_tex	ea;
 	int	floor_color;
 	int	ceil_color;
+	double	*zbuff;
 }				t_config;
 
 typedef struct	s_ray{
@@ -84,11 +95,5 @@ typedef struct	s_ray{
 	int	hit;
 	int	side;
 }				t_ray;
-
-typedef struct	s_stripe{
-	int	height;
-	int	start;
-	int	end;
-}				t_stripe;
 
 #endif

@@ -6,13 +6,56 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 23:47:06 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/23 22:23:29 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/03/26 06:10:50 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/cub3d.h"
 
-void	sprite(t_data *param)
+static void get_sprite_d(t_config *config, t_sprite *sprite)
+{
+
+}
+
+static void sort_sprite(t_config *config, t_sprite *sprite)
+{
+
+}
+
+static t_sprite *make_sprite_arr(t_config *config)
+{
+  int i;
+  t_sprite  *arr;
+
+  i = -1;
+  arr = malloc(sizeof(t_sprite) * config->sprite_num);
+  if (arr = NULL)
+    error_exit();
+  while (++i < config->sprite_num)
+  {
+    arr[i].pos.x = ((t_sprite *)config->head->content)->pos;
+  }
+
+  // 그냥 파싱하고 mlx초기화 할때 배열로 만들어서 저장해 놓을것!!
+}
+
+void  sprite(t_config *config)
+{
+  t_sprite  *sprite;
+
+  sprite = make_sprite_arr(config);
+  get_sprite_d(config, &sprite);
+  sort_sprite(config, &sprite);
+  get_sprite_conf();
+  draw_sprite();
+}
+
+
+
+
+
+
+// void	sprite(t_data *param)
 {
     //SPRITE CASTING
     //sort sprites from far to close
