@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray_cast.c                                         :+:      :+:    :+:   */
+/*   wall2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:55:41 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/26 05:25:20 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/01 02:27:05 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,17 @@ static void	cal_wall_height(t_stripe *stripe, t_ray *ray, t_config *config)
 		stripe->end = config->screen.y - 1;
 }
 
-static void	ratio_wall_to_tex(t_ray *ray, t_config *config, t_tex *tex, t_stripe stripe)
+static void
+	set_tex_conf(t_ray *ray, t_config *config, t_tex *tex, t_stripe stripe)
 {
+	if (ray->side == 0)
+		tex = &config->no;
+	else if (ray->side == 1)
+		tex = &config->so;
+	else if (ray->side == 2)
+		tex = &config->ea;
+	else
+		tex = &config->we;
 	if (ray->side == 0 || ray->side == 2)
 		tex->wall_x = config->pos.y + ray->perp_wd * ray->dir.y;
 	else
@@ -95,15 +104,7 @@ void	ray_cast(int x, t_ray *ray, t_config *config)
 
 	cal_hit_map(ray, config);
 	cal_wall_height(&stripe, ray, config);
-	if (ray->side == 0)
-		tex = &config->no;
-	else if (ray->side == 1)
-		tex = &config->so;
-	else if (ray->side == 2)
-		tex = &config->ea;
-	else
-		tex = &config->we;
-	ratio_wall_to_tex(ray, config, tex, stripe);
+	set_tex_conf(ray, config, tex, stripe);
 	put_on_tex(x, config, tex, stripe);
 	config->zbuff[x] = ray->perp_wd;
 }

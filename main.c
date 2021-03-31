@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 16:39:57 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/26 03:45:10 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/01 02:36:51 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static int	main_loop(t_config *config)
 	floor_ceil(config);
 	wall(config);
 	// sprite(config);
-	mlx_sync(MLX_SYNC_IMAGE_WRITABLE, config->img);
+	// mlx_sync(MLX_SYNC_IMAGE_WRITABLE, config->img);
 	mlx_put_image_to_window(config->mlx, config->win, config->img, 0, 0);
-	mlx_sync(MLX_SYNC_WIN_CMD_COMPLETED, config->win);
+	// mlx_sync(MLX_SYNC_WIN_CMD_COMPLETED, config->win);
 	return (0);
 }
 

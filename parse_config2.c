@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_config2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 23:04:28 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/26 04:46:10 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/01 02:28:52 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,19 @@ static void	get_player_conf(t_config *config, int i, int j)
 static void	get_sprite_pos(t_config *config, int i, int j)
 {
 	t_sprite	*new;
-	t_list	*tmp;
+	t_list		*tmp;
 
 	new = malloc(sizeof(t_sprite));
-	new->pos.x = i + 0.5;
-	new->pos.y = j + 0.5;
-	new->order = config->sprite_num++;
+	new->x = i + 0.5;
+	new->y = j + 0.5;
 	tmp = ft_lstnew(new);
 	ft_lstadd_back(&config->head, tmp);
 }
 
-
 static int	check_around(t_config *config, int i, int j)
 {
 	int	x_max;
-	int y_max;
+	int	y_max;
 
 	x_max = config->map.x;
 	y_max = config->map.y;
