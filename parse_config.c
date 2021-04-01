@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_config.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 02:36:09 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/26 02:18:48 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 00:20:01 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 static int	is_cubfile(const char *path)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (path[i])
 		i++;
-    if (path[i - 4] == '.' && \
+	if (path[i - 4] == '.' && \
 		path[i - 3] == 'c' && \
 		path[i - 2] == 'u' && \
 		path[i - 1] == 'b')
@@ -62,10 +62,10 @@ static int	set_config(char *line, t_config *config)
 
 int	parse_config(const char *file_path, t_config *config)
 {
-	int	fd;
-	int	read_code;
+	int				fd;
+	int				read_code;
 	unsigned char	parsing_done;
-	char	*line;
+	char			*line;
 
 	parsing_done = 0;
 	read_code = 1;
@@ -74,7 +74,8 @@ int	parse_config(const char *file_path, t_config *config)
 		return (-1);
 	while (read_code > 0)
 	{
-		if ((read_code = get_next_line(fd, &line)) == -1)
+		read_code = get_next_line(fd, &line);
+		if (read_code == -1)
 			return (-1);
 		if (parsing_done != 255 && *line != '\0')
 			parsing_done |= set_config(line, config);

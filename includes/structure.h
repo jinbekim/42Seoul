@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 03:13:37 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/01 02:10:58 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/01 16:50:40 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,31 +58,32 @@ typedef struct s_sprite{
 }				t_sprite;
 
 typedef struct s_config{
-	void	*mlx;
-	void	*win;
-	void	*img;
+	void		*mlx;
+	void		*win;
+	void		*img;
 
-	int		*img_addr;
-	int		bpp;
-	int		ls;
-	int		en;
+	int			*img_addr;
+	int			bpp;
+	int			ls;
+	int			en;
 
-	t_cord	map;
-	t_vec	pos;
-	t_vec	dir;
-	t_vec	plane;
-	char	**cub;
-	t_list	*head;
-	int		sprite_num;
-	t_cord	screen;
-	t_tex	sp;
-	t_tex	no;
-	t_tex	so;
-	t_tex	we;
-	t_tex	ea;
-	int		floor_color;
-	int		ceil_color;
-	double	*zbuff;
+	t_cord		map;
+	t_vec		pos;
+	t_vec		dir;
+	t_vec		plane;
+	char		**cub;
+	t_list		*head;
+	t_sprite	*arr;
+	int			sprite_num;
+	t_cord		screen;
+	t_tex		sp;
+	t_tex		no;
+	t_tex		so;
+	t_tex		we;
+	t_tex		ea;
+	int			floor_color;
+	int			ceil_color;
+	double		*zbuff;
 }				t_config;
 
 typedef struct s_ray{

@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:56:52 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/01 02:35:00 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/01 23:42:03 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <errno.h>
-# include "keycode.h"
+# include "../mlx_beta/mlx.h"
 # include "../libft/includes/libft.h"
+# include "keycode.h"
 # include "structure.h"
-# include "../mlx/mlx.h"
 
 # define MVSPD 0.2
 # define RTSPD 0.08
@@ -45,7 +45,6 @@ void	sprite(t_config *config);
 void	draw_sprite(t_config *conf, t_sprite *sprite);
 
 /*init_ptr.c*/
-void	init_config(t_config *config);
 void	init_ptr(t_config *config);
 
 /*mouse_move.c*/
@@ -58,6 +57,8 @@ int		key_control(int key, t_config *config);
 int		game_close(void *param);
 
 /*parse_config3.c*/
+void	copy_map_info(t_config *conf);
+void	get_map_size(t_config *conf);
 int		parser_r(char *line, t_config *config);
 int		parser_tex(char *line, t_tex *tex);
 int		parser_bg(char *line, int *color);

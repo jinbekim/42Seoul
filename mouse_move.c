@@ -3,41 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_move.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:11:43 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/25 23:15:19 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/01 23:54:50 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/cub3d.h"
 
-int	mouse_move(int x, int y, t_config *config)
+static void	mult_rot_matrix(t_config *conf, double rotate)
 {
-	static double s_rot;
-	static int ex_x;
-	double oldDirX = config->dir.x;
-	double oldPlaneX = config->plane.x;
+	double	prevdir;
+	double	prevplane;
 
-	if (ex_x > x)
+	prevdir = conf->dir.x;
+	prevplane = conf->plane.x;
+	conf->dir.x = \
+	 conf->dir.x * cos(-RTSPD * rotate) - conf->dir.y * sin(-RTSPD * rotate);
+	conf->dir.y = \
+	 prevdir * sin(-RTSPD * rotate) + conf->dir.y * cos(-RTSPD * rotate);
+	conf->plane.x = \
+	 conf->plane.x * cos(-RTSPD * rotate) - \
+	  conf->plane.y * sin(-RTSPD * rotate);
+	conf->plane.y = \
+	 prevplane * sin(-RTSPD * rotate) + conf->plane.y * cos(-RTSPD * rotate);
+}
+
+int	mouse_move(int x, int y, t_config *conf)
+{
+	static int	prevx;
+	double		rotate;
+
+	if (prevx > x)
 	{
-		s_rot = -1;
-		ex_x = x;
+		rotate = -1;
+		prevx = x;
 	}
-	else if (ex_x < x)
+	else if (prevx < x)
 	{
-		s_rot = 1;
-		ex_x = x;
+		rotate = 1;
+		prevx = x;
 	}
-	if (x > config->screen.x || x < 0 || y > config->screen.y || y < 0)
-		s_rot = 0;
-	config->dir.x = \
-	 config->dir.x * cos(-RTSPD * s_rot) - config->dir.y * sin(-RTSPD * s_rot);
-	config->dir.y = \
-	 oldDirX * sin(-RTSPD * s_rot) + config->dir.y * cos(-RTSPD * s_rot);
-	config->plane.x = \
-	 config->plane.x * cos(-RTSPD * s_rot) - config->plane.y * sin(-RTSPD * s_rot);
-	config->plane.y = \
-	 oldPlaneX * sin(-RTSPD * s_rot) + config->plane.y * cos(-RTSPD * s_rot);
+	else
+		return (0);
+	if (x > conf->screen.x || x < 0 || y > conf->screen.y || y < 0)
+		rotate = 0;
+	mult_rot_matrix(conf, rotate);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 03:29:36 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/01 02:37:27 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 00:28:08 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,24 @@ static void	get_tex_ptr(t_config *config, t_tex *tex)
 	path = (char *)tex->img;
 	tex->img = \
 	 mlx_xpm_file_to_image(config->mlx, path, &tex->width, &tex->height);
+	if (tex->img == NULL)
+		error_exit();
 	tex->addr = \
 	 (int *)mlx_get_data_addr(tex->img, &tex->bpp, &tex->ls, &tex->en);
 	free(path);
 }
 
-// static void	adjust_screen_size(t_config *config)
-// {
-// 	int	width;
-// 	int	height;
+static void	adjust_screen_size(t_config *config)
+{
+	int	width;
+	int	height;
 
-// 	mlx_get_screen_size(config->mlx, &width, &height);
-// 	if (config->screen.x > width)
-// 		config->screen.x = width;
-// 	if (config->screen.y > height)
-// 		config->screen.y = height;
-// }
+	mlx_get_screen_size(config->mlx, &width, &height);
+	if (config->screen.x > width)
+		config->screen.x = width;
+	if (config->screen.y > height)
+		config->screen.y = height;
+}
 
 static void	set_zbuff_len(t_config *config)
 {
@@ -43,25 +45,44 @@ static void	set_zbuff_len(t_config *config)
 		error_exit();
 }
 
-void	init_config(t_config *config)
+static t_sprite	*make_sprite_arr(t_config *config)
 {
-	ft_memset(config, 0, sizeof(t_config));
+	int			i;
+	t_sprite	*arr;
+	t_list		*tmp;
+	t_list		*tmp2;
+
+	i = -1;
+	tmp = config->head;
+	arr = malloc(sizeof(t_sprite) * config->sprite_num);
+	if (arr == NULL)
+		error_exit();
+	while (++i < config->sprite_num)
+	{
+		arr[i].x = ((t_sprite *)tmp->content)->x;
+		arr[i].y = ((t_sprite *)tmp->content)->y;
+		tmp2 = tmp;
+		tmp = tmp->next;
+		free(tmp2->content);
+		free(tmp2);
+	}
+	return (arr);
 }
 
-void	init_ptr(t_config *config)
+void	init_ptr(t_config *conf)
 {
-	config->mlx = mlx_init();
-	// adjust_screen_size(config);
-	config->win = \
-	 mlx_new_window(config->mlx, config->screen.x, config->screen.y, "cub3D");
-	config->img = \
-	 mlx_new_image(config->mlx, config->screen.x, config->screen.y);
-	config->img_addr = (int *) \
-	mlx_get_data_addr(config->img, &config->bpp, &config->ls, &config->en);
-	get_tex_ptr(config, &config->no);
-	get_tex_ptr(config, &config->we);
-	get_tex_ptr(config, &config->ea);
-	get_tex_ptr(config, &config->so);
-	get_tex_ptr(config, &config->sp);
-	set_zbuff_len(config);
+	conf->mlx = mlx_init();
+	adjust_screen_size(conf);
+	conf->win = \
+	mlx_new_window(conf->mlx, conf->screen.x, conf->screen.y, "cub3D");
+	conf->img = mlx_new_image(conf->mlx, conf->screen.x, conf->screen.y);
+	conf->img_addr = \
+	(int *)mlx_get_data_addr(conf->img, &conf->bpp, &conf->ls, &conf->en);
+	get_tex_ptr(conf, &conf->no);
+	get_tex_ptr(conf, &conf->we);
+	get_tex_ptr(conf, &conf->ea);
+	get_tex_ptr(conf, &conf->so);
+	get_tex_ptr(conf, &conf->sp);
+	set_zbuff_len(conf);
+	conf->arr = make_sprite_arr(conf);
 }

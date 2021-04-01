@@ -6,14 +6,14 @@
 #    By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/27 02:51:58 by jinbekim          #+#    #+#              #
-#    Updated: 2021/04/01 02:34:22 by jinbekim         ###   ########.fr        #
+#    Updated: 2021/04/01 22:12:29 by jinbekim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 NAME = cub3D
 INC = -Iincludes/
-MLX = -L./mlx -lmlx
+MLX = -L./mlx_beta -lmlx
 LIBFT = -lft -L./libft
 SRC = main.c \
 	parse_config.c \
