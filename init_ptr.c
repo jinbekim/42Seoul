@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 03:29:36 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 00:28:08 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 03:32:11 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ static t_sprite	*make_sprite_arr(t_config *config)
 		free(tmp2->content);
 		free(tmp2);
 	}
+	config->head = NULL;
 	return (arr);
 }
 

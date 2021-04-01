@@ -6,7 +6,7 @@
 #    By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/27 02:51:58 by jinbekim          #+#    #+#              #
-#    Updated: 2021/04/01 22:12:29 by jinbekim         ###   ########.fr        #
+#    Updated: 2021/04/02 03:12:24 by jinbekim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ all : $(NAME)
 
 $(NAME) : $(SRC)
 	$(MAKE) -C ./libft
-	$(CC) -O3 -g3 -fsanitize=address $(MLX) $(LIBFT) $(INC) $^ -o $(NAME)
+	$(CC) -O3 -g3 -Werror -Wextra -Wall -fsanitize=address $(MLX) $(LIBFT) $(INC) $^ -o $(NAME)
 
 clean :
 	rm -rf $(OBJ)

@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 16:39:57 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/01 23:37:35 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 03:13:02 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static void	start_loop(t_config *config)
 int	main(int ac, char *av[])
 {
 	t_config	config;
-	t_sprite	tmp;
 
 	ft_memset(&config, 0, sizeof(t_config));
 	if (ac > 4 || ac < 2)

@@ -1,4 +1,4 @@
-R 512 555
+R 1024 720
 NO ./textures/greystone.xpm
 SO ./textures/redbrick.xpm
 WE ./textures/purplestone.xpm

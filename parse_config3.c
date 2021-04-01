@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 00:01:58 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 00:40:35 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 03:30:08 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,25 @@ void	copy_map_info(t_config *conf)
 	int		i;
 	int		len;
 	t_list	*tmp;
+	t_list	*tmp2;
 
 	i = -1;
 	len = conf->map.y;
+	tmp2 = conf->head;
 	while (++i < conf->map.x)
 	{
-		tmp = conf->head;
+		tmp = tmp2;
 		conf->cub[i] = (char *)malloc(sizeof(char) * (len + 1));
 		if (conf->cub[i] == NULL)
 			error_exit();
 		conf->cub[i][len] = '\0';
 		ft_memset(conf->cub[i], 1, len);
 		ft_memcpy(conf->cub[i], tmp->content, ft_strlen(tmp->content));
-		conf->head = conf->head->next;
+		tmp2 = tmp2->next;
 		free(tmp->content);
 		free(tmp);
 	}
+	conf->head = NULL;
 }
 
 void	get_map_size(t_config *conf)

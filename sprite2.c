@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 01:17:27 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/01 23:01:20 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 03:12:49 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static void	draw_line(int i, int x, t_config *conf, t_sprite *sprite)
 static void	draw_i_sprite(int i, t_config *conf, t_sprite *sprite)
 {
 	int	x;
-	int	y;
 
 	x = sprite[i].draw_x.start - 1;
 	while (++x < sprite[i].draw_x.end)
