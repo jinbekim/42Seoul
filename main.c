@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 16:39:57 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 03:13:02 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 16:26:16 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	main(int ac, char *av[])
 	if (parse_config(av[1], &config) == -1)
 		error_exit();
 	init_ptr(&config);
+	if (av[2] && ft_strncmp(av[2], "--save", 10) == 0)
+		screenshot(&config);
 	start_loop(&config);
 	return (0);
 }

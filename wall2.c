@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:55:41 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/01 15:33:48 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 14:01:38 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static void	put_on_tex(int x, t_config *config, t_tex *tex, t_stripe stripe)
 		{
 			tex->cord.y = (int)tex->pos_t & (tex->height - 1);
 			tex->pos_t += tex->step;
-			config->img_addr[y * config->screen.x + x] \
+			config->img_addr[y * config->ls / 4 + x] \
 			 = tex->addr[tex->width * tex->cord.y + tex->cord.x];
 		}
 	}

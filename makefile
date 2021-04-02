@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/27 02:51:58 by jinbekim          #+#    #+#              #
-#    Updated: 2021/04/02 03:12:24 by jinbekim         ###   ########.fr        #
+#    Updated: 2021/04/02 16:10:26 by jinbekim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRC = main.c \
 	floor_ceil.c \
 	init_ptr.c \
 	sprite.c \
-	sprite2.c
+	sprite2.c \
+	screenshot.c
 
 OBJ = $(SRC:.c=.o)
 

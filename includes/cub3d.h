@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:56:52 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/01 23:42:03 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 16:10:57 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@
 
 # define MVSPD 0.2
 # define RTSPD 0.08
+
+/*screenshot.c*/
+void	screenshot(t_config *conf);
 
 /*floor_ceil.c*/
 void	floor_ceil(t_config *config);

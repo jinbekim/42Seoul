@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 01:17:27 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 03:12:49 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 14:02:58 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	draw_line(int i, int x, t_config *conf, t_sprite *sprite)
 		if ((conf->sp.addr[sprite[i].texy * conf->sp.width + sprite[i].texx] \
 		 & 0xffffff) != 0)
 		{
-			conf->img_addr[y * conf->screen.x + x] = \
+			conf->img_addr[y * conf->ls / 4 + x] = \
 			 conf->sp.addr[sprite[i].texy * conf->sp.width + sprite[i].texx];
 		}
 	}
