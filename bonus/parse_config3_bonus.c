@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_config3.c                                    :+:      :+:    :+:   */
+/*   parse_config3_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 00:01:58 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 03:30:08 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 17:01:17 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3d.h"
+#include "cub3d_bonus.h"
 
 void	copy_map_info(t_config *conf)
 {

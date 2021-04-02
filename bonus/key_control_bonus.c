@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_control.c                                      :+:      :+:    :+:   */
+/*   key_control_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:13:58 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/01 23:40:21 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 17:00:56 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3d.h"
+#include "cub3d_bonus.h"
 
 static void	move_left_right(int key, t_config *conf)
 {

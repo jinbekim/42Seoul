@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_config.c                                     :+:      :+:    :+:   */
+/*   parse_config_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 02:36:09 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 00:20:01 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 17:01:09 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3d.h"
+#include "cub3d_bonus.h"
 
 static int	is_cubfile(const char *path)
 {

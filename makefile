@@ -6,7 +6,7 @@
 #    By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/27 02:51:58 by jinbekim          #+#    #+#              #
-#    Updated: 2021/04/02 16:31:04 by jinbekim         ###   ########.fr        #
+#    Updated: 2021/04/02 17:00:28 by jinbekim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,16 @@ SRC = main.c \
 	sprite2.c \
 	screenshot.c
 
-OBJ = $(SRC:.c=.o)
+BNS = $(addsuffix _bonus.c, $(basename $(SRC)))
+
+# %.o : src/%.c
+# 	$(CC) $(CFLAGS) $(INC) -c -o $@ $?
+
+# OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(SRC)
+$(NAME) : $(addprefix ./src/, $(SRC))
 	$(MAKE) -C ./libft
 	$(CC) -Werror -Wextra -Wall -fsanitize=address $(MLX) $(LIBFT) $(INC) $^ -o $(NAME)
 
@@ -47,6 +52,8 @@ fclean : clean
 
 re : fclean all
 
-bonus : all
+bonus : $(addprefix ./bonus/, $(BNS))
+	$(MAKE) -C ./libft
+	$(CC) -Wall -Werror -Wextra $(MLX) $(LIBFT) $(INC) $^ -o $(NAME)
 
 .PHONY : all clean fclean re bonus

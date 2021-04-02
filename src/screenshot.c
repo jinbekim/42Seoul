@@ -6,11 +6,11 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 15:00:22 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 16:24:47 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 16:51:39 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cub3d.h"
+#include "cub3d.h"
 
 static void	get_screen_data(t_config *conf)
 {

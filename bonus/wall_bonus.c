@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wall.c                                             :+:      :+:    :+:   */
+/*   wall_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:52:03 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/01 03:04:39 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 17:01:35 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3d.h"
+#include "cub3d_bonus.h"
 
 double	ft_abs(double x)
 {

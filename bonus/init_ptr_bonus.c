@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_ptr.c                                         :+:      :+:    :+:   */
+/*   init_ptr_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 03:29:36 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 03:32:11 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 17:00:52 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3d.h"
+#include "cub3d_bonus.h"
 
 static void	get_tex_ptr(t_config *config, t_tex *tex)
 {

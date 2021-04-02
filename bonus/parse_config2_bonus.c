@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_config2.c                                    :+:      :+:    :+:   */
+/*   parse_config2_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 23:04:28 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/01 23:58:17 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 17:01:13 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/cub3d.h"
+#include "cub3d_bonus.h"
 
 static int	check_around(t_config *config, int i, int j)
 {
