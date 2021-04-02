@@ -6,13 +6,13 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 21:52:13 by jinbekim          #+#    #+#             */
-/*   Updated: 2020/12/28 01:49:45 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:27:52 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t		end;
 

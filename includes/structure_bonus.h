@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structure.h                                        :+:      :+:    :+:   */
+/*   structure_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 03:13:37 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/01 16:50:40 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:13:46 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCTURE_H
-# define STRUCTURE_H
+#ifndef STRUCTURE_BONUS_H
+# define STRUCTURE_BONUS_H
 
 typedef struct s_vec{
 	double	x;

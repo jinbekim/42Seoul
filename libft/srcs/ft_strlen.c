@@ -6,13 +6,13 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 16:58:53 by jinbekim          #+#    #+#             */
-/*   Updated: 2020/12/28 01:19:35 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:24:53 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	len;
 

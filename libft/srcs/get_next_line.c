@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 19:22:33 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/23 21:14:01 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:27:18 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ static char	*return_line(char *backup)
 
 	j = 0;
 	i = has_newline(backup);
-	if (!(arr = malloc(i + 1)))
+	arr = malloc(i + 1);
+	if (arr == NULL)
 		return (NULL);
 	arr[i] = '\0';
 	while (j < i)
@@ -48,7 +49,7 @@ static char	*return_line(char *backup)
 	return (arr);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	int				readsize;
 	char			buff[BUFFER_SIZE + 1];
@@ -58,7 +59,8 @@ int		get_next_line(int fd, char **line)
 		return (-1);
 	while (has_newline(backup[fd]) == -1)
 	{
-		if ((readsize = read(fd, buff, BUFFER_SIZE)) <= 0)
+		readsize = read(fd, buff, BUFFER_SIZE);
+		if (readsize <= 0)
 			return (eof_return(readsize, &backup[fd], line));
 		buff[readsize] = '\0';
 		if (!backup[fd])

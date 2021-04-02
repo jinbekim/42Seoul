@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 21:45:21 by jinbekim          #+#    #+#             */
-/*   Updated: 2020/12/28 01:22:26 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:24:39 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
-	if (!(arr = malloc(len1 + len2 + 1)))
+	arr = malloc(len1 + len2 + 1);
+	if (arr == NULL)
 		return (0);
 	while (s1[i])
 	{

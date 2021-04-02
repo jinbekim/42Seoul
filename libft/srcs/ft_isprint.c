@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 16:32:10 by jinbekim          #+#    #+#             */
-/*   Updated: 2020/12/21 16:50:16 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:20:54 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isprint(int arg)
+int	ft_isprint(int arg)
 {
 	if (32 <= arg && arg <= 126)
 		return (1);

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 15:49:14 by jinbekim          #+#    #+#             */
-/*   Updated: 2020/12/21 15:59:25 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:20:45 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int arg)
+int	ft_isalpha(int arg)
 {
 	if ('A' <= arg && arg <= 'Z')
 		return (1);

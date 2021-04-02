@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keycode.h                                          :+:      :+:    :+:   */
+/*   keycode_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 03:09:56 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/03/23 04:25:07 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:13:39 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEYCODE_H
-# define KEYCODE_H
+#ifndef KEYCODE_BONUS_H
+# define KEYCODE_BONUS_H
 
 # define KEY_W 13
 # define KEY_S 1

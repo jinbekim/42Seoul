@@ -6,11 +6,11 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 16:50:34 by jinbekim          #+#    #+#             */
-/*   Updated: 2020/12/28 19:42:11 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:26:05 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_toupper(int c)
+int	ft_toupper(int c)
 {
 	if ('a' <= c && c <= 'z')
 		return (c - 32);

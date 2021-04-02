@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 16:09:40 by jinbekim          #+#    #+#             */
-/*   Updated: 2020/12/21 23:16:15 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:20:48 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isascii(int arg)
+int	ft_isascii(int arg)
 {
 	if (0 <= arg && arg <= 127)
 		return (1);

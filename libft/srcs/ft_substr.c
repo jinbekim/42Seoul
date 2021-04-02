@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 20:48:51 by jinbekim          #+#    #+#             */
-/*   Updated: 2020/12/28 01:03:48 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:25:55 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	if (ft_strlen(s) <= start)
 		return (ft_strdup(""));
-	if (!(arr = malloc(len + 1)))
+	arr = malloc(len + 1);
+	if (arr == NULL)
 		return (0);
 	while ((i < len) && s[i + start])
 	{

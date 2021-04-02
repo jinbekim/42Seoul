@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 23:38:22 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 16:50:44 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:08:42 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	floor_ceil(t_config *config)
 				config->img_addr[y * config->ls / 4 + x] = \
 				 config->ceil_color;
 			else
-				config->img_addr[y * config->ls / 4+ x] = \
+				config->img_addr[y * config->ls / 4 + x] = \
 				 config->floor_color;
 		}
 	}

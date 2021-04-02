@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 22:35:34 by jinbekim          #+#    #+#             */
-/*   Updated: 2020/12/28 22:17:55 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:19:03 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static	int	ft_isspace(int c)
 	return (0);
 }
 
-int			ft_atoi(const	char *s)
+int	ft_atoi(const	char *s)
 {
 	size_t	i;
 	int		c;

@@ -6,13 +6,13 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 21:42:41 by jinbekim          #+#    #+#             */
-/*   Updated: 2020/12/27 22:56:33 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:21:45 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int		count;
 	t_list	*tmp;

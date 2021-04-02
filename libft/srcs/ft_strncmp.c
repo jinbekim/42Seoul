@@ -6,17 +6,17 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 22:10:29 by jinbekim          #+#    #+#             */
-/*   Updated: 2020/12/28 21:54:14 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:25:25 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int						ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t				i;
-	const unsigned char *c1;
-	const unsigned char *c2;
+	const unsigned char	*c1;
+	const unsigned char	*c2;
 
 	c1 = (const unsigned char *)s1;
 	c2 = (const unsigned char *)s2;

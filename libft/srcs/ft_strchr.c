@@ -6,15 +6,15 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 20:37:13 by jinbekim          #+#    #+#             */
-/*   Updated: 2020/12/28 01:30:37 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:23:40 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

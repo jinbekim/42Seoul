@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 16:00:45 by jinbekim          #+#    #+#             */
-/*   Updated: 2020/12/21 16:03:10 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:20:36 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalnum(int arg)
+int	ft_isalnum(int arg)
 {
 	if ('0' <= arg && arg <= '9')
 		return (1);

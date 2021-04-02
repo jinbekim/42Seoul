@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 15:58:58 by jinbekim          #+#    #+#             */
-/*   Updated: 2020/12/29 17:48:24 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:21:25 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 static	char	*ft_itoa_core(int n, int len, int token)
 {
-	char *arr;
+	char	*arr;
 
-	if (!(arr = malloc(len + 1)))
+	arr = malloc(len + 1);
+	if (arr == NULL)
 		return (0);
 	arr[len] = 0;
 	if (token == -1)
@@ -30,7 +31,7 @@ static	char	*ft_itoa_core(int n, int len, int token)
 	return (arr);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int			tmp;
 	int			token;

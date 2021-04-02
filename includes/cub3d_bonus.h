@@ -6,12 +6,12 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:56:52 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 16:45:57 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:13:29 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef CUB3D_BONUS_H
+# define CUB3D_BONUS_H
 
 # include <stdio.h>
 # include <stdlib.h>

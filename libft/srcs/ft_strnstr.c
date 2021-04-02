@@ -6,13 +6,13 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 20:56:47 by jinbekim          #+#    #+#             */
-/*   Updated: 2020/12/30 02:06:34 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:25:29 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strnstr(const char *hay, const char *nee, size_t len)
+char	*ft_strnstr(const char *hay, const char *nee, size_t len)
 {
 	size_t	n;
 

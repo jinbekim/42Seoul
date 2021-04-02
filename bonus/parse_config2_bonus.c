@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 23:04:28 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 17:01:13 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:12:34 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,9 @@ static void	get_player_conf(t_config *config, int i, int j)
 	config->pos.x = i;
 	config->pos.y = j;
 	check_around(config, i, j);
-	if (config->cub[i][j] == 'N')
-	{
-		config->dir.y = 1;
-		config->plane.x = 0.66;
-	}
-	else if (config->cub[i][j] == 'S')
+	config->dir.y = 1;
+	config->plane.x = 0.66;
+	if (config->cub[i][j] == 'S')
 	{
 		config->dir.y = -1;
 		config->plane.x = -0.66;
@@ -56,7 +53,7 @@ static void	get_player_conf(t_config *config, int i, int j)
 		config->dir.x = 1;
 		config->plane.y = -0.66;
 	}
-	else
+	else if (config->cub[i][j] == 'W')
 	{
 		config->dir.x = -1;
 		config->plane.y = 0.66;
