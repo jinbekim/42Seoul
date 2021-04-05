@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_ptr_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 03:29:36 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/04 14:48:48 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/05 16:24:11 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ static t_sprite	*make_sprite_arr(t_config *config)
 	{
 		arr[i].x = ((t_sprite *)tmp->content)->x;
 		arr[i].y = ((t_sprite *)tmp->content)->y;
+		arr[i].num_tex = ((t_sprite *)tmp->content)->num_tex;
 		tmp2 = tmp;
 		tmp = tmp->next;
 		free(tmp2->content);
@@ -72,6 +73,7 @@ static t_sprite	*make_sprite_arr(t_config *config)
 
 void	init_ptr(t_config *conf)
 {
+	conf->sp2.img = ft_strdup("./textures/greenlight.xpm");
 	conf->mlx = mlx_init();
 	adjust_screen_size(conf);
 	conf->win = \
@@ -84,6 +86,7 @@ void	init_ptr(t_config *conf)
 	get_tex_ptr(conf, &conf->ea);
 	get_tex_ptr(conf, &conf->so);
 	get_tex_ptr(conf, &conf->sp);
+	get_tex_ptr(conf, &conf->sp2);
 	set_zbuff_len(conf);
 	conf->arr = make_sprite_arr(conf);
 	conf->middle_line = conf->screen.y / 2;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:56:52 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/04 14:48:40 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/05 17:17:45 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@
 
 /*screenshot.c*/
 void	screenshot(t_config *conf);
+
+/*life_bar_minimap_bonus.c.c*/
+void	other_bonus(t_config *conf);
 
 /*floor_ceil.c*/
 void	floor_ceil(t_config *config);

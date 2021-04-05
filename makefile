@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/27 02:51:58 by jinbekim          #+#    #+#              #
-#    Updated: 2021/04/04 14:41:37 by jinbekim         ###   ########.fr        #
+#    Updated: 2021/04/05 17:17:04 by jinbekim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,9 @@ SRC = main.c \
 	sprite2.c \
 	screenshot.c
 
-BNS = $(addsuffix _bonus.c, $(basename $(SRC))) key_control2_bonus.c
+BNS = $(addsuffix _bonus.c, $(basename $(SRC))) key_control2_bonus.c \
+	other_bonus.c
+
 
 # %.o : src/%.c
 # 	$(CC) $(CFLAGS) $(INC) -c -o $@ $?
@@ -42,18 +44,19 @@ all : $(NAME)
 
 $(NAME) : $(addprefix ./src/, $(SRC))
 	$(MAKE) -C ./libft
-	$(CC) -Werror -Wextra -Wall -fsanitize=address $(MLX) $(LIBFT) $(INC) $^ -o $(NAME)
+	$(CC) -O3 -g3 -Werror -Wextra -Wall -fsanitize=address $(MLX) $(LIBFT) $(INC) $^ -o $(NAME)
 
 clean :
 	rm -rf $(OBJ)
 
 fclean : clean
 	rm -rf $(NAME)
+	$(MAKE) -C ./libft fclean
 
 re : fclean all
 
 bonus : $(addprefix ./bonus/, $(BNS))
 	$(MAKE) -C ./libft
-	$(CC) -Wall -Werror -Wextra $(MLX) $(LIBFT) $(INC) $^ -o $(NAME)
+	$(CC) -O3 -g3 -fsanitize=address -Wall -Werror -Wextra $(MLX) $(LIBFT) $(INC) $^ -o $(NAME)
 
 .PHONY : all clean fclean re bonus

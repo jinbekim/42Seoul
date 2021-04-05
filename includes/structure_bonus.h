@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structure_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 03:13:37 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/04 14:48:15 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/05 15:11:43 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_sprite{
 	int			screenx;
 	int			texx;
 	int			texy;
+	int			num_tex;
 }				t_sprite;
 
 typedef struct s_config{
@@ -76,6 +77,7 @@ typedef struct s_config{
 	t_sprite	*arr;
 	int			sprite_num;
 	t_cord		screen;
+	t_tex		sp2;
 	t_tex		sp;
 	t_tex		no;
 	t_tex		so;
