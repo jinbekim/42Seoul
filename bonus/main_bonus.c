@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 16:39:57 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 17:01:00 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/04 15:39:34 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	start_loop(t_config *config)
 {
 	mlx_loop_hook(config->mlx, &main_loop, config);
 	mlx_hook(config->win, KEY_PRESS, 0, &key_control, config);
+	mlx_hook(config->win, KEY_RELEASE, 0, &key_release, config);
 	mlx_hook(config->win, MOUSE_MOTION, 0, &mouse_move, config);
 	mlx_hook(config->win, RED_CROSS, 0, &game_close, 0);
 	mlx_loop(config->mlx);
@@ -44,6 +45,7 @@ int	main(int ac, char *av[])
 	init_ptr(&config);
 	if (av[2] && ft_strncmp(av[2], "--save", 10) == 0)
 		screenshot(&config);
+	system("afplay ./sound/start.mp3");
 	start_loop(&config);
 	return (0);
 }

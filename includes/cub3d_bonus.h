@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:56:52 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 18:13:29 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/04 14:48:40 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 # include "keycode_bonus.h"
 # include "structure_bonus.h"
 
-# define MVSPD 0.2
 # define RTSPD 0.08
 
 /*screenshot.c*/
@@ -55,6 +54,7 @@ int		mouse_move(int x, int y, t_config *config);
 
 /*key_control.c*/
 int		key_control(int key, t_config *config);
+int		key_release(int key, t_config *conf);
 
 /*game_close.c*/
 int		game_close(void *param);

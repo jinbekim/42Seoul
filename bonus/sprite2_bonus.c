@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite2_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 01:17:27 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 17:01:29 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/04 13:49:56 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	draw_line(int i, int x, t_config *conf, t_sprite *sprite)
 	while (++y < sprite[i].draw_y.end)
 	{
 		sprite[i].texy = \
-		(int)((y - 0.5 * conf->screen.y + 0.5 * sprite[i].draw_y.len) \
+		(int)((y - conf->middle_line + 0.5 * sprite[i].draw_y.len) \
 		 * conf->sp.height / sprite[i].draw_y.len);
 		if ((conf->sp.addr[sprite[i].texy * conf->sp.width + sprite[i].texx] \
 		 & 0xffffff) != 0)

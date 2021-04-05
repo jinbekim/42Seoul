@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+         #
+#    By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/22 18:47:30 by jinbekim          #+#    #+#              #
-#    Updated: 2021/03/23 21:15:09 by jinbekim         ###   ########.fr        #
+#    Updated: 2021/04/02 20:54:42 by jinbekim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,6 @@ FUNC = ft_atoi \
 	ft_strdup \
 	ft_strjoin \
 	ft_strtrim \
-	ft_split \
 	ft_itoa \
 	ft_strmapi \
 	ft_putchar_fd \

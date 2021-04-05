@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   screenshot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 15:00:22 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 16:51:39 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/03 00:49:37 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	screenshot(t_config *conf)
 	int	fd;
 
 	get_screen_data(conf);
-	fd = open("screenshot.bmp", O_CREAT | O_RDWR);
+	fd = open("screenshot.bmp", O_CREAT | O_RDWR, S_IRWXG | S_IRWXO | S_IRWXU);
 	if (fd < 0)
 		error_exit();
 	write_bmp_header(fd, conf);

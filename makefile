@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+         #
+#    By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/27 02:51:58 by jinbekim          #+#    #+#              #
-#    Updated: 2021/04/02 17:00:28 by jinbekim         ###   ########.fr        #
+#    Updated: 2021/04/04 14:41:37 by jinbekim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRC = main.c \
 	sprite2.c \
 	screenshot.c
 
-BNS = $(addsuffix _bonus.c, $(basename $(SRC)))
+BNS = $(addsuffix _bonus.c, $(basename $(SRC))) key_control2_bonus.c
 
 # %.o : src/%.c
 # 	$(CC) $(CFLAGS) $(INC) -c -o $@ $?

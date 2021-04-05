@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keycode_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 03:09:56 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 18:13:39 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/04 14:43:17 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define KEY_S 1
 # define KEY_A 0
 # define KEY_D 2
+# define KEY_Z 6
 # define KEY_ESC 53
 # define AR_LT 123
 # define AR_RT 124

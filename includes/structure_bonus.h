@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structure_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 03:13:37 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 18:13:46 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/04 14:48:15 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ typedef struct s_config{
 	int			floor_color;
 	int			ceil_color;
 	double		*zbuff;
+	int			middle_line;
+	double		mvs;
 }				t_config;
 
 typedef struct s_ray{

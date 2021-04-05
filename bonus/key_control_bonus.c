@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_control_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:13:58 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 17:00:56 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/04 21:28:10 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,43 +20,43 @@ static void	move_left_right(int key, t_config *conf)
 	vertical.y = conf->dir.x * sin(1.571) + conf->dir.y * cos(1.571);
 	if (key == KEY_A)
 	{
-		if (conf->cub[(int)(conf->pos.x + vertical.x * MVSPD)] \
+		if (conf->cub[(int)(conf->pos.x + vertical.x * conf->mvs)] \
 		[(int)conf->pos.y] == '0')
-			conf->pos.x += vertical.x * MVSPD;
+			conf->pos.x += vertical.x * conf->mvs;
 		if (conf->cub[(int)conf->pos.x] \
-		[(int)(conf->pos.y + vertical.y * MVSPD)] == '0')
-			conf->pos.y += vertical.y * MVSPD;
+		[(int)(conf->pos.y + vertical.y * conf->mvs)] == '0')
+			conf->pos.y += vertical.y * conf->mvs;
 	}
 	if (key == KEY_D)
 	{
-		if (conf->cub[(int)(conf->pos.x - vertical.x * MVSPD)] \
+		if (conf->cub[(int)(conf->pos.x - vertical.x * conf->mvs)] \
 		[(int)conf->pos.y] == '0')
-			conf->pos.x -= vertical.x * MVSPD;
+			conf->pos.x -= vertical.x * conf->mvs;
 		if (conf->cub[(int)conf->pos.x] \
-		[(int)(conf->pos.y - vertical.y * MVSPD)] == '0')
-			conf->pos.y -= vertical.y * MVSPD;
+		[(int)(conf->pos.y - vertical.y * conf->mvs)] == '0')
+			conf->pos.y -= vertical.y * conf->mvs;
 	}
 }
 
 static void	move_fwd_bck(int key, t_config *conf)
 {
-	if (key == KEY_W || key == AR_UP)
+	if (key == KEY_W)
 	{
-		if (conf->cub[(int)(conf->pos.x + conf->dir.x * MVSPD)] \
+		if (conf->cub[(int)(conf->pos.x + conf->dir.x * conf->mvs)] \
 		[(int)conf->pos.y] == '0')
-			conf->pos.x += conf->dir.x * MVSPD;
+			conf->pos.x += conf->dir.x * conf->mvs;
 		if (conf->cub[(int)conf->pos.x] \
-		[(int)(conf->pos.y + conf->dir.y * MVSPD)] == '0')
-			conf->pos.y += conf->dir.y * MVSPD;
+		[(int)(conf->pos.y + conf->dir.y * conf->mvs)] == '0')
+			conf->pos.y += conf->dir.y * conf->mvs;
 	}
-	if (key == KEY_S || key == AR_DW)
+	if (key == KEY_S)
 	{
-		if (conf->cub[(int)(conf->pos.x - conf->dir.x * MVSPD)] \
+		if (conf->cub[(int)(conf->pos.x - conf->dir.x * conf->mvs)] \
 		[(int)conf->pos.y] == '0')
-			conf->pos.x -= conf->dir.x * MVSPD;
+			conf->pos.x -= conf->dir.x * conf->mvs;
 		if (conf->cub[(int)conf->pos.x] \
-		[(int)(conf->pos.y - conf->dir.y * MVSPD)] == '0')
-			conf->pos.y -= conf->dir.y * MVSPD;
+		[(int)(conf->pos.y - conf->dir.y * conf->mvs)] == '0')
+			conf->pos.y -= conf->dir.y * conf->mvs;
 	}
 }
 
@@ -86,6 +86,20 @@ static void	rotate_fov(int key, t_config *conf)
 	}
 }
 
+static void	bonus_movement(int key, t_config *conf)
+{
+	if (key == AR_DW && conf->middle_line > conf->screen.y * 0.45)
+		conf->middle_line -= 10;
+	if (key == AR_UP && conf->middle_line < conf->screen.y * 0.55)
+		conf->middle_line += 10;
+	if (key == KEY_Z && conf->middle_line > conf->screen.y * 0.45)
+	{
+		conf->mvs = 0.05;
+		while (conf->middle_line > conf->screen.y * 0.45)
+			conf->middle_line -= 10;
+	}
+}
+
 int	key_control(int key, t_config *conf)
 {
 	if (key == KEY_ESC)
@@ -95,6 +109,7 @@ int	key_control(int key, t_config *conf)
 	}
 	move_fwd_bck(key, conf);
 	move_left_right(key, conf);
+	bonus_movement(key, conf);
 	rotate_fov(key, conf);
 	return (0);
 }

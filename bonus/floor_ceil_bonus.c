@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   floor_ceil_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 23:38:22 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 18:11:58 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/04 13:43:55 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	floor_ceil(t_config *config)
 		y = -1;
 		while (++y < config->screen.y)
 		{
-			if (y < (config->screen.y / 2))
+			if (y < (config->middle_line))
 				config->img_addr[y * config->ls / 4 + x] = \
 				 config->ceil_color;
 			else

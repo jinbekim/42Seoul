@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall2_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:55:41 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 17:01:40 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/04 15:52:31 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ static void	cal_wall_height(t_stripe *stripe, t_ray *ray, t_config *config)
 		ray->perp_wd \
 		 = (ray->map.y - config->pos.y + (1 - ray->step.y) / 2) / ray->dir.y;
 	stripe->len = (int)(config->screen.y / ray->perp_wd);
-	stripe->start = -stripe->len / 2 + config->screen.y / 2;
-	stripe->end = stripe->len / 2 + config->screen.y / 2;
+	stripe->start = -stripe->len / 2 + config->middle_line;
+	stripe->end = stripe->len / 2 + config->middle_line;
 	if (stripe->start < 0)
 		stripe->start = 0;
 	if (stripe->end >= config->screen.y)
@@ -69,7 +69,7 @@ static void
 		tex->cord.x = tex->width - tex->cord.x - 1;
 	tex->step = 1.0 * tex->height / stripe.len;
 	tex->pos_t \
-	 = (stripe.start - config->screen.y / 2 + stripe.len / 2) * tex->step;
+	 = (stripe.start - config->middle_line + stripe.len / 2) * tex->step;
 }
 
 static void	put_on_tex(int x, t_config *config, t_tex *tex, t_stripe stripe)

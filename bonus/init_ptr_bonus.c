@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_ptr_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 03:29:36 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 17:00:52 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/04 14:48:48 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,6 @@ void	init_ptr(t_config *conf)
 	get_tex_ptr(conf, &conf->sp);
 	set_zbuff_len(conf);
 	conf->arr = make_sprite_arr(conf);
+	conf->middle_line = conf->screen.y / 2;
+	conf->mvs = 0.2;
 }
