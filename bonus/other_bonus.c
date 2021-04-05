@@ -56,7 +56,7 @@ void	shadow(t_config *conf)
 	x = -1;
 	while (++x < conf->screen.x)
 	{
-		rank = 1 / conf->zbuff[x];
+		rank = 1 / conf->zbuff[x] + 0.3;
 		if (rank > 1)
 			rank = 1;
 		else if (rank < 0)
@@ -68,11 +68,11 @@ void	shadow(t_config *conf)
 			{
 				conf->img_addr[y * conf->ls / 4 + x] = \
 				((int)((conf->img_addr[y * conf->ls / 4 + x] \
-				& 0xff0000) * rank) & 0xff0000) + \
+				 & 0xff0000) * rank) & 0xff0000) + \
 				((int)((conf->img_addr[y * conf->ls / 4 + x] \
-				& 0xff00) * rank) & 0xff00) + \
+				 & 0xff00) * rank) & 0xff00) + \
 				((int)((conf->img_addr[y * conf->ls / 4 + x] \
-				& 0xff) * rank) & 0xff);
+				 & 0xff) * rank) & 0xff);
 			}
 		}
 	}
@@ -80,6 +80,5 @@ void	shadow(t_config *conf)
 
 void	other_bonus(t_config *conf)
 {
-	shadow(conf);
 	life_bar_minimap(conf);
 }

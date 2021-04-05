@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   sprite2_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 01:17:27 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/05 17:59:09 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/05 23:13:30 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+static int	get_color(int color, t_sprite sprite)
+{
+	int		r;
+	int		g;
+	int		b;
+	double	rank;
+
+	rank = 1 / sprite.trans_pos.y + 0.3;
+	if (rank > 1)
+		rank = 1;
+	r = (int)((color & 0xff0000) * rank) & 0xff0000;
+	g = (int)((color & 0xff00) * rank) & 0xff00;
+	b = (int)((color & 0xff) * rank) & 0xff;
+	return (r | g | b);
+}
 
 static void	draw_line(int i, int x, t_config *conf, t_sprite *sprite)
 {
@@ -26,18 +42,10 @@ static void	draw_line(int i, int x, t_config *conf, t_sprite *sprite)
 		 & 0xffffff) != 0)
 		{
 			conf->img_addr[y * conf->ls / 4 + x] = \
-			 conf->sp.addr[sprite[i].texy * conf->sp.width + sprite[i].texx];
+			 get_color(conf->sp.addr[sprite[i].texy * conf->sp.width + \
+			 sprite[i].texx], sprite[i]);
 		}
 	}
-}
-
-static int	get_color(int color, int x, t_config *conf)
-{
-	int	r;
-	int	g;
-	int b;
-
-
 }
 
 static void	draw_line2(int i, int x, t_config *conf, t_sprite *sprite)
@@ -55,7 +63,7 @@ static void	draw_line2(int i, int x, t_config *conf, t_sprite *sprite)
 		{
 			conf->img_addr[y * conf->ls / 4 + x] = \
 			 get_color(conf->sp2.addr[sprite[i].texy * conf->sp.width + \
-			 sprite[i].texx], x, conf);
+			 sprite[i].texx], sprite[i]);
 		}
 	}
 }
