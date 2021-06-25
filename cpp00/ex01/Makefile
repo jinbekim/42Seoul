@@ -12,3 +12,5 @@ $(NAME) : $(SRC)
 clean :
 	rm -rf $(NAME)
 
+re : clean all
+

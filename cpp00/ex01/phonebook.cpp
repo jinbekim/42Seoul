@@ -1,5 +1,25 @@
 #include "phonebook.hpp"
 
+phonebook::phonebook(const std::string value[10]){
+
+}
+
+void	phonebook::show_index(void)
+{
+	for(int j = 0; j < 3; j++){
+		std::cout << " | ";
+		std::cout << std::setw(10) << info_value[j];
+	}
+}
+
+void	phonebook::show_info(void)
+{
+	for(int i = 0; i < 11; i++){
+		std::cout.width(17);
+		std::cout << info_key[i] << ": " << info_value[i] << std::endl;
+	}
+}
+
 static void	add_func(phonebook (*data)[8])
 {
 	int	i = 0;
@@ -12,34 +32,21 @@ static void	add_func(phonebook (*data)[8])
 		tmp = (*data)[0];
 	else
 		tmp = (*data)[i];
-	std::cout << "what's your first and last name?" << std::endl;
-	std::cin >> tmp.first_name >> tmp.last_name;
-	std::cout << "what's your nick name?" << std::endl;
-	std::cin >> tmp.nick_name;
-	std::cout << "what's your login?" << std::endl;
-	std::cin >> tmp.login;
-	std::cout << "what's your phone number?" << std::endl;
-	std::cin >> tmp.phone_num;
-	std::cout << "what's your birthday_date?" << std::endl;
-	std::cin >> tmp.birthday_date;
-	std::cout << "what's your favorite_meal?" << std::endl;
-	std::cin >> tmp.favorite_meal;
-	std::cout << "what's your underwear_color?" << std::endl;
-	std::cin >> tmp.underwear_color;
-	std::cout << "what's your darkest_secret?" << std::endl;
-	std::cin >> tmp.darkest_secret;
+	for(int i = 0; i < 11; i++){
+		std::cout << "what's your" << tmp.info_key[i] << std::endl;
+		std::cin >> tmp.info_value[i];
+	}
 	tmp.filled = 1;
-	std::cout << "your data saved succesfully" << std::endl;
-	tmp.show_info();
 }
 
 static void	search_func(phonebook (*data)[8])
 {
 	int	i = 0;
 
-	while (i < 8 && (*data)[i].filled)
-	{
-
+	while (i < 8 && (*data)[i].filled){
+		std::cout << i;
+		(*data)[i].show_index();
+		std::cout << std::endl;
 		i++;
 	}
 }
@@ -54,7 +61,8 @@ int	main(void)
 	while (CMD.compare("EXIT") && CMD != "exit")
 	{
 		std::cout << greeting_msg << std::endl;
-		std::getline(std::cin, CMD);
+		// std::getline(std::cin, CMD);
+		std::cin >> CMD;
 		if (!CMD.compare("ADD") || CMD == "add")
 			add_func(&data);
 		else if (!CMD.compare("SEARCH") || !CMD.compare("search"))
