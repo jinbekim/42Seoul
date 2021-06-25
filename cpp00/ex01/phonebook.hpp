@@ -34,16 +34,16 @@ void	phonebook::show_index(int i)
 }
 void	phonebook::show_info()
 {
-	std::cout << first_name << std::endl;
-	std::cout << last_name << std::endl;
-	std::cout << nick_name << std::endl;
-	std::cout << login << std::endl;
-	std::cout << postal_address << std::endl;
-	std::cout << email << std::endl;
-	std::cout << phone_num << std::endl;
-	std::cout << birthday_date << std::endl;
-	std::cout << favorite_meal << std::endl;
-	std::cout << underwear_color << std::endl;
-	std::cout << darkest_secret << std::endl;
+	std::cout << "first_name :" << first_name << std::endl;
+	std::cout << "last_name :" << last_name << std::endl;
+	std::cout << "nick_name :" << nick_name << std::endl;
+	std::cout << "login :" << login << std::endl;
+	std::cout << "postal_address :" << postal_address << std::endl;
+	std::cout << "email :" << email << std::endl;
+	std::cout << "phone_num :" << phone_num << std::endl;
+	std::cout << "birthday_date :" << birthday_date << std::endl;
+	std::cout << "favorite_meal :" << favorite_meal << std::endl;
+	std::cout << "underwear_color :" << underwear_color << std::endl;
+	std::cout << "darkest_secret :" << darkest_secret << std::endl;
 }
 #endif

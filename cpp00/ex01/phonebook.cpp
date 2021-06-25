@@ -51,7 +51,7 @@ int	main(void)
 	std::string goodbye_msg = "Good bye!, you will lose everything.  :(";
 	phonebook	data[8];
 
-	while (CMD.compare("EXIT") || CMD != "exit")
+	while (CMD.compare("EXIT") && CMD != "exit")
 	{
 		std::cout << greeting_msg << std::endl;
 		std::getline(std::cin, CMD);
