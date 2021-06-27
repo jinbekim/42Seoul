@@ -28,7 +28,7 @@ class	phonebook{
 		void		show_index();
 		void		show_info();
 		phonebook();
-		~phonebook();
+		// ~phonebook();
 };
 
 #endif
