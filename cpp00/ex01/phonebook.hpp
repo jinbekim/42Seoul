@@ -20,14 +20,15 @@ enum e_key{
 };
 class	phonebook{
 	private:
-
-	public :
-		std::string	info_key[11];
 		std::string info_value[11];
+	public :
 		bool		filled;
+		void		set_value(int i, std::string value);
+		std::string	get_value(int i);
+		std::string show_key(int i);
 		void		show_index();
 		void		show_info();
-		phonebook();
+		// phonebook();
 		// ~phonebook();
 };
 

@@ -1,8 +1,8 @@
 NAME = phonebook
 CC = clang++
-# CPPFLAGS = -Wall -Werror -Wextra
+CPPFLAGS = -Wall -Werror -Wextra
 INC = -I./phonebook.hpp
-SRC = phonebook.cpp
+SRC = phonebook.cpp main.cpp
 
 all : $(NAME)
 
