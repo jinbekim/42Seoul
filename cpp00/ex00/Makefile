@@ -1,13 +1,13 @@
 NAME = megaphone
-CC = clang++
-CPPFLAGS = -Wall -Werror -Wextra
+CXX = clang++
+CXXFLAGS = -Wall -Werror -Wextra
 
 SRC = megaphone.cpp
 
 all : $(NAME)
 
 $(NAME) : $(SRC)
-	$(CC) $(CPPFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 clean :
 	rm -rf $(NAME)
