@@ -1,24 +1,18 @@
-// 1. read filename
-// 2. find s1, replace it as s2
-// 3. generate filename.replace
-// basic file operations
-#include <iostream>
-#include <fstream>
+#include "ft_sed.hpp"
 
-int main (int ac, char **av) {
-	if (ac < 4)
+int main (int ac, const char **argv) {
+	if (ac != 4)
+	{
+		std::cout << "error : Wrong num of argv!" << std::endl;
 		return (1);
-	std::ofstream	source;
-	std::ofstream	result;
-	std::string		file_name = av[1];
-	std::string		s1 = av[2];
-	std::string		s2 = av[3];
-	std::string		buf;
-
-	source.open(file_name);
-	result.open(file_name + ".replace");
-
-	source.close();
-	result.close();
+	}
+	try{
+		ft_sed::replace(argv[1], argv[2], argv[3]);
+	}catch(const char *str){
+		std::cerr << str << " is error" << std::endl;
+	}catch(...){
+		std::cerr << "something is wrong" << std::endl;
+	}
+	std::cout << "program end." << std::endl;
 	return 0;
 }
