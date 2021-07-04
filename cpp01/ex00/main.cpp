@@ -31,5 +31,6 @@ int	main(void)
 	std::cout << "--------------STACK--------------" << std::endl;
 	ponyOnTheStack();
 	std::cout << "---------------------------------" << std::endl;
+	system("leaks ./a.out");
 	return (0);
 }
