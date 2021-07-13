@@ -16,12 +16,13 @@ int main(void)
 	std::cout << *shrub << std::endl;
 	shrub->beSigned(supervisor);
 	shrub->execute(francis);
+	std::cout << "1---1" << std::endl;
 
 	Form *pres = new PresidentialPardonForm("Francis");
 	std::cout << *pres << std::endl;
 	supervisor.signForm(*pres);
 	pres->execute(supervisor);
-	std::cout << "---" << std::endl;
+	std::cout << "2---2" << std::endl;
 
 	Form *robot = new RobotomyRequestForm("Bender");
 	std::cout << *robot << std::endl;
@@ -30,7 +31,7 @@ int main(void)
 	francis.executeForm(*robot);
 	francis.executeForm(*robot);
 
-	std::cout << "---" << std::endl;
+	std::cout << "3---3" << std::endl;
 
 	try
 	{
@@ -41,7 +42,7 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << "---" << std::endl;
+	std::cout << "4---4" << std::endl;
 
 	try
 	{
@@ -54,7 +55,7 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << "---" << std::endl;
+	std::cout << "5---5" << std::endl;
 
 	try
 	{
@@ -68,7 +69,7 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << "---" << std::endl;
+	std::cout << "6---6" << std::endl;
 
 	try
 	{

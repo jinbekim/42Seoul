@@ -14,20 +14,19 @@ int main(void)
 		Bureaucrat jack("Jack", 0);
 		std::cout << jack << std::endl;
 	}
-	catch(Bureaucrat::GradeTooHighException const &e)
+	catch(std::exception const &e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-		//만약 위아래 형식이 같았다면? 그래서 미리 만들어둔 예외 클래스를 상속해서 만들고
-		// 오버라이드 해서 사용함.
+
 	try
 	{
 		Bureaucrat jack("Jack", 1000);
 		std::cout << jack << std::endl;
 	}
-	catch(Bureaucrat::GradeTooLowException const &e)
+	catch(std::exception const &e)
 	{
-		std::cerr << e.print() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 
 	try

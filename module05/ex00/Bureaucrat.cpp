@@ -37,7 +37,7 @@ std::ostream & operator<<(std::ostream& os, Bureaucrat &bur)
 const char* Bureaucrat::GradeTooHighException::what() const throw(){
 	return ("BureaucratException: Grade too High");
 }
-const std::string Bureaucrat::GradeTooLowException::print() const{
+const char* Bureaucrat::GradeTooLowException::what() const throw(){
 	return ("BureaucratException: Grade too Low");
 }
 
