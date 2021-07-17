@@ -25,7 +25,12 @@ int main(int argc, char const *argv[])
 	}
 	try
 	{
-		std::cout <<"float: "<< std::fixed <<std::setprecision(1) << static_cast<float>(hi) << "f" << std::endl;
+		float tmp = static_cast<float>(hi);
+		std::cout << "float: ";
+		if (tmp - static_cast<int>(hi) == 0)
+			std::cout << std::fixed <<std::setprecision(1) << tmp << "f" << std::endl;
+		else
+			std::cout << tmp  << "f" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -33,7 +38,7 @@ int main(int argc, char const *argv[])
 	}
 	try
 	{
-		std::cout<< "double: "<< std::fixed <<std::setprecision(1) << static_cast<double>(hi)<< std::endl;
+		std::cout<< "double: " << static_cast<double>(hi)<< std::endl;
 	}
 	catch(const std::exception& e)
 	{
