@@ -4,6 +4,16 @@
 
 int main(void)
 {
+	Awesome classa(10);
+	Awesome classb(20);
+
+	std::cout << (classa > classb) << std::endl;
+	swap(classa, classb);
+	std::cout << (classa > classb) << std::endl;
+	std::cout << &min(classa, classb) << std::endl;
+	std::cout << &max(classa, classb) << std::endl;
+
+
 	int a = 2;
 	int b = 3;
 
