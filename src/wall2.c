@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wall2.c                                            :+:      :+:    :+:   */
+/*   wall2_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:55:41 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 16:52:00 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/05 23:13:15 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ static void	cal_wall_height(t_stripe *stripe, t_ray *ray, t_config *config)
 		ray->perp_wd \
 		 = (ray->map.y - config->pos.y + (1 - ray->step.y) / 2) / ray->dir.y;
 	stripe->len = (int)(config->screen.y / ray->perp_wd);
-	stripe->start = -stripe->len / 2 + config->screen.y / 2;
-	stripe->end = stripe->len / 2 + config->screen.y / 2;
+	stripe->start = -stripe->len / 2 + config->middle_line;
+	stripe->end = stripe->len / 2 + config->middle_line;
 	if (stripe->start < 0)
 		stripe->start = 0;
 	if (stripe->end >= config->screen.y)
@@ -69,22 +69,31 @@ static void
 		tex->cord.x = tex->width - tex->cord.x - 1;
 	tex->step = 1.0 * tex->height / stripe.len;
 	tex->pos_t \
-	 = (stripe.start - config->screen.y / 2 + stripe.len / 2) * tex->step;
+	 = (stripe.start - config->middle_line + stripe.len / 2) * tex->step;
 }
 
 static void	put_on_tex(int x, t_config *config, t_tex *tex, t_stripe stripe)
 {
-	int	y;
+	int		y;
+	double	rank;
 
 	y = -1;
+	rank = 1 / config->zbuff[x] + 0.3;
+	if (rank > 1)
+		rank = 1;
 	while (++y < config->screen.y)
 	{
 		if (y >= stripe.start && y <= stripe.end)
 		{
 			tex->cord.y = (int)tex->pos_t & (tex->height - 1);
 			tex->pos_t += tex->step;
-			config->img_addr[y * config->ls / 4 + x] \
-			 = tex->addr[tex->width * tex->cord.y + tex->cord.x];
+			config->img_addr[y * config->ls / 4 + x] = \
+			((int)((tex->addr[tex->width * tex->cord.y + tex->cord.x] \
+			 & 0xff0000) * rank) & 0xff0000) + \
+			((int)((tex->addr[tex->width * tex->cord.y + tex->cord.x] \
+			 & 0xff00) * rank) & 0xff00) + \
+			((int)((tex->addr[tex->width * tex->cord.y + tex->cord.x] \
+			 & 0xff) * rank) & 0xff);
 		}
 	}
 }
@@ -104,7 +113,7 @@ void	ray_cast(int x, t_ray *ray, t_config *config)
 		tex = &config->ea;
 	else
 		tex = &config->we;
+	config->zbuff[x] = ray->perp_wd;
 	set_tex_conf(ray, config, tex, stripe);
 	put_on_tex(x, config, tex, stripe);
-	config->zbuff[x] = ray->perp_wd;
 }

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   keycode.h                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 03:09:56 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/04 14:34:53 by jinbekim         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef KEYCODE_H
 # define KEYCODE_H
 
@@ -17,6 +5,7 @@
 # define KEY_S 1
 # define KEY_A 0
 # define KEY_D 2
+# define KEY_Z 6
 # define KEY_ESC 53
 # define AR_LT 123
 # define AR_RT 124
@@ -28,4 +17,5 @@
 # define BTN_RELEASE 5
 # define RED_CROSS 17
 # define MOUSE_MOTION 6
+
 #endif

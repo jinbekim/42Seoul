@@ -21,6 +21,8 @@ SRC = main.c \
 	parse_config3.c \
 	error_exit.c \
 	key_control.c \
+	key_control2.c \
+	other.c \
 	game_close.c \
 	mouse_move.c \
 	wall.c \
@@ -30,10 +32,6 @@ SRC = main.c \
 	sprite.c \
 	sprite2.c \
 	screenshot.c
-
-BNS = $(addsuffix _bonus.c, $(basename $(SRC))) key_control2_bonus.c \
-	other_bonus.c
-
 
 # %.o : src/%.c
 # 	$(CC) $(CFLAGS) $(INC) -c -o $@ $?

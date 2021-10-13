@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:56:52 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 16:10:57 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/05 17:17:45 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,15 @@
 # include "keycode.h"
 # include "structure.h"
 
-# define MVSPD 0.2
+# define USAGE "Usage: ./cub3D <mapPath>\n"
+
 # define RTSPD 0.08
 
 /*screenshot.c*/
 void	screenshot(t_config *conf);
+
+/*life_bar_minimap.c.c*/
+void	other_bonus(t_config *conf);
 
 /*floor_ceil.c*/
 void	floor_ceil(t_config *config);
@@ -55,6 +59,7 @@ int		mouse_move(int x, int y, t_config *config);
 
 /*key_control.c*/
 int		key_control(int key, t_config *config);
+int		key_release(int key, t_config *conf);
 
 /*game_close.c*/
 int		game_close(void *param);

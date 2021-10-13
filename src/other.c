@@ -1,4 +1,4 @@
-#include "cub3d_bonus.h"
+#include "cub3d.h"
 
 void	life_bar_minimap(t_config *conf)
 {

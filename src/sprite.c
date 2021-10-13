@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite.c                                           :+:      :+:    :+:   */
+/*   sprite_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jinbekim <jinbekim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 23:47:06 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/04/02 16:51:45 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/04/04 13:47:37 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ static void	get_start_end(t_config *conf, t_sprite *sp)
 	while (++i < conf->sprite_num)
 	{
 		sp[i].draw_y.len = abs((int)(conf->screen.y / sp[i].trans_pos.y));
-		sp[i].draw_y.start = -sp[i].draw_y.len / 2 + conf->screen.y / 2;
-		sp[i].draw_y.end = sp[i].draw_y.len / 2 + conf->screen.y / 2;
+		sp[i].draw_y.start = -sp[i].draw_y.len / 2 + conf->middle_line;
+		sp[i].draw_y.end = sp[i].draw_y.len / 2 + conf->middle_line;
 		if (sp[i].draw_y.start < 0)
 			sp[i].draw_y.start = 0;
 		if (sp[i].draw_y.end >= conf->screen.y)

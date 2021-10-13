@@ -1,4 +1,4 @@
-#include "cub3d_bonus.h"
+#include "cub3d.h"
 
 int	key_release(int key, t_config *conf)
 {
