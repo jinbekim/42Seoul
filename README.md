@@ -4,18 +4,25 @@
 This is a System Administration subject. You will discover Docker and you will set up your first web server
 
 
-## *Period*
+## *Period*:
 2021.02. ~ 2021.02.
 
-## *CMD*
-> *build*
+## *CMD*:
+> *Build*
 >
 > `$> docker build -t name .`
 >
-> *run*
+> *Run*
 >
 > `$> docker run --name aname -it -p 80:80 -p 443:443 name`
 >
 > *Autoindex On and Off*
 >
 > `$> ... -e AUTOINDEX=false` or `AUTOINDEX=true ...`
+
+## *Goal*:
+* Generate SSL
+* Install Nginx
+* Install CGI
+* Install phpmyadmin
+* Install wordpress
