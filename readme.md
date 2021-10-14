@@ -1,9 +1,35 @@
-#cub3D
+# cub3D
 
-## 1. mlxlib을 사용한 raycasting 과제
+## *Summary*:
+최초의 FPS 게임인 울펜슈타인(Wolfenstein)을 만들어보는 프로젝트. 레이 캐스팅(ray-casting)을 이용해 미로 속 동적 뷰를 구현한다.
 
 
-#### 사용법
+## *Period*:
+2021.02 ~ 2021.04
 
-##### 1. make
-##### 2. ./cub3D ./map/testMap.cub
+## *CMD*:
+> *Build*
+>
+> `$> make`
+>
+> *Run*
+>
+> `$> ./cub3D ./map/[map.cub]`
+>
+> *Screenshoot*
+> 
+> `$> ./cub3D ./map/[map.cub] --save`
+
+
+## *Goal*:
+- [x] Ray Casting
+  - DDA algorithm
+  - Rotation matrix
+  - Vector
+  - Fisheye effect
+- [x] Wall collisions
+- [x] Rotate the point of view with mouse
+- [x] multiple sprite
+
+## *References*:
+> https://lodev.org/cgtutor/raycasting.html
