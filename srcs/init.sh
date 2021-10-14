@@ -8,7 +8,11 @@ chown -R www-data /var/www/*
 chmod -R 755 /var/www/*
 
 # nginx
-ln -s /etc/nginx/sites-available/autoindex_on /etc/nginx/sites-enabled/nginx-conf
+if ${AUTOINDEX}; then
+	ln -s /etc/nginx/sites-available/autoindex_on /etc/nginx/sites-enabled/nginx-conf
+else
+	ln -s /etc/nginx/sites-available/autoindex_off /etc/nginx/sites-enabled/nginx-conf
+fi
 rm -rf /etc/nginx/sites-enabled/default
 
 # ssl
