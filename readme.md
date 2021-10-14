@@ -17,7 +17,7 @@
 > `$> ./cub3D ./map/[map.cub]`
 >
 > *Screenshoot*
-> 
+>
 > `$> ./cub3D ./map/[map.cub] --save`
 
 

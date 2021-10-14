@@ -25,10 +25,15 @@ void	floor_ceil(t_config *config)
 		{
 			if (y < (config->middle_line))
 				config->img_addr[y * config->ls / 4 + x] = \
-				 config->ceil_color;
+			((int)((config->ceil_color & 0xff0000) * (config->middle_line - y) / config->middle_line + 0.1) & 0xff0000) + \
+			((int)((config->ceil_color & 0xff00) * (config->middle_line - y) / config->middle_line + 0.1) & 0xff00) + \
+			((int)((config->ceil_color & 0xff) * (config->middle_line - y) / config->middle_line + 0.1) & 0xff);
 			else
 				config->img_addr[y * config->ls / 4 + x] = \
-				 config->floor_color;
+			((int)((config->floor_color & 0xff0000) * (y - config->middle_line) / config->middle_line + 0.1) & 0xff0000) + \
+			((int)((config->floor_color & 0xff00) * (y - config->middle_line) / config->middle_line + 0.1) & 0xff00) + \
+			((int)((config->floor_color & 0xff) * (y - config->middle_line) / config->middle_line + 0.1) & 0xff);
+
 		}
 	}
 }

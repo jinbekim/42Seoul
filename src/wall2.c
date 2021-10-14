@@ -78,7 +78,7 @@ static void	put_on_tex(int x, t_config *config, t_tex *tex, t_stripe stripe)
 	double	rank;
 
 	y = -1;
-	rank = 1 / config->zbuff[x] + 0.3;
+	rank = 1 / config->zbuff[x] + 0.1;
 	if (rank > 1)
 		rank = 1;
 	while (++y < config->screen.y)
