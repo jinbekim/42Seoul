@@ -26,3 +26,4 @@ This is a System Administration subject. You will discover Docker and you will s
 - [x] Install CGI
 - [x] Install phpmyadmin
 - [x] Install wordpress
+- [x] Install mariaDB
