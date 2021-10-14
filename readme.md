@@ -1,4 +1,5 @@
 # cub3D
+![image](https://user-images.githubusercontent.com/59330110/137302350-4a6fbc60-5229-494d-ac41-865aee4b8f1d.png)
 
 ## *Summary*:
 최초의 FPS 게임인 울펜슈타인(Wolfenstein)을 만들어보는 프로젝트. 레이 캐스팅(ray-casting)을 이용해 미로 속 동적 뷰를 구현한다.
