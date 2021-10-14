@@ -21,8 +21,8 @@ This is a System Administration subject. You will discover Docker and you will s
 > `$> ... -e AUTOINDEX=false` or `AUTOINDEX=true ...`
 
 ## *Goal*:
-* Generate SSL
-* Install Nginx
-* Install CGI
-* Install phpmyadmin
-* Install wordpress
+- [x] Generate SSL
+- [x] Install Nginx
+- [x] Install CGI
+- [x] Install phpmyadmin
+- [x] Install wordpress
