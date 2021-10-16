@@ -1,5 +1,7 @@
 # 42Seoul
+> 프랑스의 컴퓨터공학과의 비학위 과정인 에꼴42를 벤치마킹한 정부주도 교육기관.
 
+<br>
 
 || Subject | Language| Keyword | Period |
 |--- |---| --- | --- | --- |
@@ -14,3 +16,7 @@
 8| [CPP_module](https://github.com/jinbekim/CPP_modules)  |C++| `C++` | ~ 2021.07.20 |
 9| [webserv](https://github.com/socketsocket/passive_team)  |C++| `HTTP` `Network`| ~ 2021.09.14 |
 10| [ft_containers](https://github.com/jinbekim/ft_containers) |C++| `OOP` `template` `data structure` | ~ 2021.10.11 |
+
+
+## Reference
+[42Seoul 이란 ?](https://yechoi.tistory.com/4)
