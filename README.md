@@ -1,6 +1,11 @@
 # 42Seoul (2020. 12 ~ 현재)
-> 프랑스의 컴퓨터공학과의 비학위 과정인 에꼴42를 벤치마킹한 정부주도 교육기관.
-
+> 이노베이션 아카데미는 소프트웨어 인재 양성, 새로운 교육 시스템의 개발, 소프트웨어 개발자 생태계 활성화를 그 미션으로 대한민국 정부가 2019년에 설립한 재단입니다.
+>
+> 42 SEOUL은 이노베이션 아카데미 재단의 첫번째 교육 프로그램으로, 혁신적인 소프트웨어 인재 양성을 목적으로 합니다. 42 SEOUL은 창의성(Creativity), 비판적 사고(Critical Thinking), 도전정신(Challenge), 융합(Convergence), 공감과 협업(Collaboration)의 5C 역량을 가진 인재 양성을 목표로 합니다.
+> 
+> 모든 사람은 자신만의 특별한 영역에 창의성을 가지고 있기 때문에, 다른 4개의 역량을 키워 이미 가지고 있던 창의성으로 세상을 바꿀 수 있는 혁신적 인재를 양성하고자 합니다.
+> 
+> 42 SEOUL가 추구하는 소프트웨어 교육은 교수없이 교육생들이 서로에게 배우는 혁신적인 교육방법 및 철학을 기반으로 하는 교육을 계획하고 있습니다.
 <br>
 
 # 프로젝트
@@ -20,4 +25,11 @@
 
 
 ## Reference
-[42Seoul 이란 ?](https://yechoi.tistory.com/4)
+[42Seoul 이란 ?](https://42seoul.kr/seoul42/contents/view?contentsNo=14&level=2&menuNo=30)
+
+[42Place 블로그](https://42place.innovationacademy.kr/)
+
+[이노베이션 아카데미 유튜브 채널](https://www.youtube.com/channel/UC5pBkQjap4TW-LJryKZQegQ)
+
+[이노베이션 아카데미 Github](https://github.com/innovationacademy-kr/)
+
