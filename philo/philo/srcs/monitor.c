@@ -10,7 +10,7 @@ static int	check_alive(t_philo *philo)
 	while (i < philo->arg->p_num)
 	{
 		gettimeofday(&check_death, NULL);
-		timepast = (check_death.tv_sec - philo[i].start_eat_time.tv_sec) * 1000\
+		timepast = (check_death.tv_sec - philo[i].start_eat_time.tv_sec) * 1000 \
 		+ (check_death.tv_usec - philo[i].start_eat_time.tv_usec) / 1000;
 		if (timepast > (uint64_t)philo[i].arg->ttd)
 		{
@@ -52,7 +52,7 @@ static void	wait_to_done(t_philo *philo)
 	printf("all philosopher ate %d times\n", philo->arg->opt);
 }
 
-int			monitor_philos(t_env *env)
+int	monitor_philos(t_env *env)
 {
 	if (env->arg->opt)
 		wait_to_done(env->philo);

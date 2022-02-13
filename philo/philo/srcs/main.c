@@ -34,7 +34,7 @@ int	clean_table(t_env *env)
 	return (1);
 }
 
-int			main(int ac, char *av[])
+int	main(int ac, char *av[])
 {
 	t_env	*env;
 

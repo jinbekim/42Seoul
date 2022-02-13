@@ -1,12 +1,13 @@
 #include "philo.h"
 
-static void			*make_philo(int philo_num, t_env *env)
+static void	*make_philo(int philo_num, t_env *env)
 {
 	t_philo			*philo;
 	int				i;
 
 	i = 0;
-	if ((philo = malloc(philo_num * sizeof(t_philo))) == 0)
+	philo = malloc(philo_num * sizeof(t_philo));
+	if (philo == 0)
 		return (0);
 	while (i < philo_num)
 	{
@@ -22,13 +23,14 @@ static void			*make_philo(int philo_num, t_env *env)
 	return (philo);
 }
 
-static void			*make_mutex_fork(int philo_num)
+static void	*make_mutex_fork(int philo_num)
 {
 	pthread_mutex_t	*fork;
 	int				i;
 
 	i = 0;
-	if ((fork = malloc(sizeof(pthread_mutex_t) * philo_num)) == NULL)
+	fork = malloc(sizeof(pthread_mutex_t) * philo_num);
+	if (fork == NULL)
 		return (0);
 	memset(fork, 0, sizeof(pthread_mutex_t) * philo_num);
 	while (i < philo_num)
@@ -40,22 +42,26 @@ static void			*make_mutex_fork(int philo_num)
 	return (fork);
 }
 
-int					set_env(t_env **env, char **av)
+int	set_env(t_env **env, char **av)
 {
-	if (((*env) = malloc(sizeof(t_env))) == NULL)
+	(*env) = malloc(sizeof(t_env));
+	if ((*env) == NULL)
 		return (1);
-	if (((*env)->arg = malloc(sizeof(t_arg))) == NULL)
+	(*env)->arg = malloc(sizeof(t_arg));
+	if ((*env)->arg == NULL)
 		return (clean_table(*env));
 	(*env)->arg->p_num = ft_atoi(av[P_NUM]);
 	(*env)->arg->ttd = ft_atoi(av[TTD]);
 	(*env)->arg->tte = ft_atoi(av[TTE]);
 	(*env)->arg->tts = ft_atoi(av[TTS]);
 	(*env)->arg->opt = ft_atoi(av[OPT]);
-	if (((*env)->fork = make_mutex_fork((*env)->arg->p_num)) == NULL)
+	(*env)->fork = make_mutex_fork((*env)->arg->p_num);
+	if ((*env)->fork == NULL)
 		return (clean_table(*env));
 	if (pthread_mutex_init(&(*env)->printer, NULL) < 0)
 		return (clean_table(*env));
-	if (((*env)->philo = make_philo((*env)->arg->p_num, (*env))) == NULL)
+	(*env)->philo = make_philo((*env)->arg->p_num, (*env));
+	if ((*env)->philo == NULL)
 		return (clean_table(*env));
 	return (0);
 }

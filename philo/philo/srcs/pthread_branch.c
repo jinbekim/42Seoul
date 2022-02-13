@@ -1,6 +1,6 @@
 #include "philo.h"
 
-int				pthread_branch(t_env *env)
+int	pthread_branch(t_env *env)
 {
 	int			i;
 	pthread_t	tid;
