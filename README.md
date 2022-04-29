@@ -2,7 +2,7 @@
 || Subject | Language| Sammary | Period |
 |--- |---| --- | --- | --- |
 0| [Libft](https://github.com/jinbekim/42Seoul/tree/main/libft)  |C| 앞으로 진행할 프로젝트를 위해, 일반적인 함수를 모은 C 라이브러리 구현 | ~2020.12.30 |
-1| [get_next_line](https://github.com/jinbekim/42Seoul/tree/main/get_next_line) |C| 파일 디스크립터로부터 개행을 기준으로 한 줄씩 읽어오는 함수를 구현  | ~2021.01.07 |
+1| [get_next_line](https://github.com/jinbekim/42Seoul/tree/main/GNL) |C| 파일 디스크립터로부터 개행을 기준으로 한 줄씩 읽어오는 함수를 구현  | ~2021.01.07 |
 2| [ft_printf](https://github.com/jinbekim/42Seoul/tree/main/ft_printf)  |C| 가변인자를 활용 하여 printf 함수를 직접 구현 | ~2021.01.22 |
 3| [ft_server](https://github.com/jinbekim/42Seoul/tree/main/ft_server)  |-| 도커(Docker)를 이용해 첫 웹 서버(Nginx + Wordpress + MariaDB)를 구동. | ~2021.03.01 |
 4| [cub3D](https://github.com/jinbekim/42Seoul/tree/main/cub3D)  |C| 레이 캐스팅(ray-casting)을 이용해 최초의 FPS 게임인 울펜슈타인(Wolfenstein)을 만들어보는 프로젝트. | ~2021.04.06 |
