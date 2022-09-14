@@ -1,3 +1,6 @@
 [submodule "Libft"]
 	path = Libft
 	url = git@github.com:jinbekim/Libft.git
+[submodule "GNL"]
+	path = GNL
+	url = git@github.com:jinbekim/GNL.git
