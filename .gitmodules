@@ -25,3 +25,6 @@
 [submodule "ft_containers"]
 	path = ft_containers
 	url = git@github.com:jinbekim/ft_containers.git
+[submodule "minishell"]
+	path = minishell
+	url = git@github.com:jinbekim/minishell.git
