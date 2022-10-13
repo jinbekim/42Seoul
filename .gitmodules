@@ -16,3 +16,6 @@
 [submodule "Libasm"]
 	path = Libasm
 	url = git@github.com:jinbekim/Libasm.git
+[submodule "cub3D"]
+	path = cub3D
+	url = git@github.com:jinbekim/cub3D.git
