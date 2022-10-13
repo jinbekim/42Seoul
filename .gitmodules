@@ -13,3 +13,6 @@
 [submodule "ft_printf"]
 	path = ft_printf
 	url = git@github.com:jinbekim/ft_printf.git
+[submodule "Libasm"]
+	path = Libasm
+	url = git@github.com:jinbekim/Libasm.git
