@@ -4,3 +4,6 @@
 [submodule "GNL"]
 	path = GNL
 	url = git@github.com:jinbekim/GNL.git
+[submodule "webserv"]
+	path = webserv
+	url = git@github.com:jinbekim/webserv.git
