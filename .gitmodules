@@ -28,3 +28,6 @@
 [submodule "minishell"]
 	path = minishell
 	url = git@github.com:jinbekim/minishell.git
+[submodule "ft_server"]
+	path = ft_server
+	url = git@github.com:jinbekim/ft_server.git
