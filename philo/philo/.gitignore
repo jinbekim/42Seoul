@@ -1,4 +1,0 @@
-objs/*
-!objs/.keep
-.DS_Store
-.vscode
