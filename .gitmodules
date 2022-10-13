@@ -34,3 +34,9 @@
 [submodule "Inception"]
 	path = Inception
 	url = git@github.com:jinbekim/Inception.git
+[submodule "cpp_module"]
+	path = cpp_module
+	url = git@github.com:jinbekim/cpp_module.git
+[submodule "Philosophers"]
+	path = Philosophers
+	url = git@github.com:jinbekim/Philosophers.git
