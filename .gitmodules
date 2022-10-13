@@ -22,3 +22,6 @@
 [submodule "Push_swap"]
 	path = Push_swap
 	url = git@github.com:jinbekim/Push_swap.git
+[submodule "ft_containers"]
+	path = ft_containers
+	url = git@github.com:jinbekim/ft_containers.git
